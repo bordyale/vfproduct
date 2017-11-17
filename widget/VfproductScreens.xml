@@ -76,7 +76,7 @@
 											</condition>
 											<widgets>
 												<include-menu name="ProductSubTabBar"
-													location="component://product/widget/catalog/CatalogMenus.xml" />
+													location="component://vfproduct/widget/VfproductMenus.xml" />
 											</widgets>
 										</section>
 									</fail-widgets>
@@ -116,7 +116,7 @@
 									</decorator-section>
 									<decorator-section name="search-results">
 										<include-form name="ListProducts"
-											location="component://product/widget/catalog/ProductForms.xml" />
+											location="component://vfproduct/widget/VfproductForms.xml" />
 									</decorator-section>
 								</decorator-screen>
 							</widgets>
@@ -141,10 +141,10 @@
                 <decorator-screen name="CommonProductDecorator" location="${parameters.productDecoratorLocation}">
                     <decorator-section name="body">
                         <screenlet title="${groovy: parameters.productId ? uiLabelMap.PageTitleEditProduct : uiLabelMap.ProductNewProduct}">
-                            <include-form name="EditProduct" location="component://product/widget/catalog/ProductForms.xml"/>
+                            <include-form name="EditProduct" location="component://vfproduct/widget/VfproductForms.xml"/>
                         </screenlet>
 
-                        <section>
+                        <!-- <section>
                             <condition>
                                 <not><if-empty field="product"/></not>
                             </condition>
@@ -153,7 +153,7 @@
                                     <include-form name="EditProductDup" location="component://product/widget/catalog/ProductForms.xml"/>
                                 </screenlet>
                             </widgets>
-                        </section>
+                        </section> -->
                         <section>
                             <condition>
                                 <not><if-empty field="product"/></not>
