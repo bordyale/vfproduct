@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="VFPRODUCT_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="VFPRODUCT_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="VFPRODUCT_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="VFPRODUCT_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="VFPRODUCT_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="VFPRODUCT_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="VFPRODUCT_ADMIN"/>
+</entity-engine-xml>

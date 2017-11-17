@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the Vfproduct Component." permissionId="VFPRODUCT_VIEW"/>
+    <SecurityPermission description="Create operations in the Vfproduct Component." permissionId="VFPRODUCT_CREATE"/>
+    <SecurityPermission description="Update operations in the Vfproduct Component." permissionId="VFPRODUCT_UPDATE"/>
+    <SecurityPermission description="Delete operations in the Vfproduct Component." permissionId="VFPRODUCT_DELETE"/>
+    <SecurityPermission description="ALL operations in the Vfproduct Component." permissionId="VFPRODUCT_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="VFPRODUCT_ADMIN"/>
+
+</entity-engine-xml>
