@@ -40,12 +40,41 @@
         <response name="success" type="view" value="EditProduct"/>
         <response name="error" type="view" value="EditProduct"/>
     </request-map>
+    <!-- ================ Product Prices Requests ================= -->
+    <request-map uri="EditProductPrices">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="EditProductPrices"/>
+    </request-map>
+    <request-map uri="createProductPrice">
+        <security https="true" auth="true"/>
+        <event type="service" path="" invoke="createProductPrice"/>
+        <response name="success" type="request-redirect" value="EditProductPrices"><redirect-parameter name="productId"/></response>
+        <response name="error" type="view" value="EditProductPrices"/>
+    </request-map>
+    <request-map uri="updateProductPrice">
+        <security https="true" auth="true"/>
+        <event type="service" path="" invoke="updateProductPrice"/>
+        <response name="success" type="request-redirect" value="EditProductPrices"><redirect-parameter name="productId"/></response>
+        <response name="error" type="view" value="EditProductPrices"/>
+    </request-map>
+    <request-map uri="ProductPriceHistory">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="ProductPriceHistory"/>
+    </request-map>
+    <request-map uri="deleteProductPrice">
+        <security https="true" auth="true"/>
+        <event type="service" path="" invoke="deleteProductPrice"/>
+        <response name="success" type="request-redirect" value="EditProductPrices"><redirect-parameter name="productId"/></response>
+        <response name="error" type="view" value="EditProductPrices"/>
+    </request-map>
+    
 		
 
 	<!-- View Mappings -->
 	<view-map name="main" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#main" />
 	<view-map name="FindProduct" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#FindProduct"/>
-	<view-map name="EditProduct" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#EditProduct"/>		
+	<view-map name="EditProduct" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#EditProduct"/>
+	<view-map name="EditProductPrices" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#EditProductPrices"/>		
 	
 		
 		
