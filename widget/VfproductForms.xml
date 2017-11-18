@@ -335,7 +335,236 @@
             </field-group>
         </sort-order>
     </form>
+	    <!-- SupplierProduct -->
+    <form name="AddSupplierProduct" type="single" target="updateSupplierProduct" title="" default-map-name="supplierProduct"
+        header-row-style="header-row" default-table-style="basic-table">
+        <alt-target use-when="supplierProduct==null" target="createSupplierProduct"/>
+        <auto-fields-service service-name="updateSupplierProduct" map-name=""/>
+        <!-- productId, partyId, and availableFromDate, minimumOrderQuantity, currencyUomId are primary keys of SupplierProduct and should not be updatable, so we use use-when to change the behavior of the form
+        if there is a SupplierProduct value available.  productId is always hidden (assuming it exists) so this is not an issue -->
+        <field name="productId"><hidden value="${productId}"/></field>
+        <field name="partyId" title="${uiLabelMap.ProductSupplier}" use-when="supplierProduct!=null">
+            <display-entity entity-name="PartyNameView" description="${firstName} ${middleName} ${lastName} ${groupName}"/>
+        </field>
+        <field name="partyId" title="${uiLabelMap.ProductSupplier}" use-when="supplierProduct==null">
+            <drop-down allow-empty="false">
+                <entity-options entity-name="PartyRoleAndPartyDetail" description="${groupName} ${firstName} ${lastName} [${partyId}]">
+                    <entity-constraint name="roleTypeId" value="SUPPLIER"/>
+                    <entity-order-by field-name="groupName"/>
+                    <entity-order-by field-name="firstName"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="availableFromDate" use-when="supplierProduct==null">
+            <date-time default-value="${groovy: org.apache.ofbiz.base.util.UtilDateTime.nowTimestamp()}"/>
+        </field>
+        <field name="availableFromDate" use-when="supplierProduct!=null">
+            <display/>
+        </field>
+        <field name="minimumOrderQuantity" use-when="supplierProduct==null">
+            <text default-value="0" size="5"/>
+        </field>
+        <field name="minimumOrderQuantity" use-when="supplierProduct!=null">
+            <display/>
+        </field>
+        <field name="currencyUomId" title="${uiLabelMap.ProductCurrencyUomId}" use-when="supplierProduct==null">
+            <drop-down allow-empty="false" no-current-selected-key="${defaultOrganizationPartyCurrencyUomId}">
+                <entity-options key-field-name="uomId" description="${description} - ${abbreviation}" entity-name="Uom">
+                    <entity-constraint name="uomTypeId" operator="equals" value="CURRENCY_MEASURE"/>
+                    <entity-order-by field-name="description"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="currencyUomId" title="${uiLabelMap.ProductCurrencyUomId}" use-when="supplierProduct!=null">
+            <display-entity entity-name="Uom" key-field-name="uomId"/>
+        </field>
+        <field name="supplierPrefOrderId">
+            <drop-down allow-empty="true" no-current-selected-key="10_MAIN_SUPPL">
+                <entity-options entity-name="SupplierPrefOrder" key-field-name="supplierPrefOrderId">
+                    <entity-order-by field-name="supplierPrefOrderId"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="supplierRatingTypeId">
+            <drop-down allow-empty="true">
+                <entity-options entity-name="SupplierRatingType" key-field-name="supplierRatingTypeId">
+                    <entity-order-by field-name="description"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="quantityUomId" title="${uiLabelMap.ProductQuantityUomId}">
+            <drop-down allow-empty="true">
+                <entity-options entity-name="UomAndType" key-field-name="uomId" description="${typeDescription}: ${description} (${abbreviation})">
+                    <entity-constraint name="uomTypeId" operator="not-equals" value="CURRENCY_MEASURE"/>
+                    <entity-order-by field-name="typeDescription"/>
+                    <entity-order-by field-name="uomId"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="canDropShip" title="${uiLabelMap.ProductSupplierCanDropShip}">
+            <drop-down allow-empty="false" no-current-selected-key="N">
+                <option key="Y" description="${uiLabelMap.CommonY}"/>
+                <option key="N" description="${uiLabelMap.CommonN}"/>
+            </drop-down>
+        </field>
+        <field use-when="supplierProduct == null" name="submitButton" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
+        <field use-when="supplierProduct != null" name="submitButton" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
+    </form>
+    <form name="ListSupplierProducts" type="list" target="updateSupplierProduct" title="" list-name="productSuppliers"
+        odd-row-style="alternate-row" default-table-style="basic-table">
+        <field name="partyId" title="${uiLabelMap.ProductSupplier}">
+            <display-entity entity-name="PartyNameView" also-hidden="true" description="${firstName} ${middleName} ${lastName} ${groupName}">
+                <sub-hyperlink target="/partymgr/control/viewprofile" target-type="inter-app" description="${partyId}" link-style="buttontext">
+                    <parameter param-name="partyId"/>
+                </sub-hyperlink>
+            </display-entity>
+        </field>
+        <field name="supplierProductId"><display/></field>
+        <field name="minimumOrderQuantity" title="${uiLabelMap.ProductMinimumOrderQuantity}" sort-field="true">
+            <display/>
+        </field>
+        <field name="orderQtyIncrements" title="${uiLabelMap.ProductOrderQtyIncrements}" sort-field="true">
+            <display/>
+        </field>
+        <field name="supplierPrefOrderId">
+            <display-entity entity-name="SupplierPrefOrder"/>
+        </field>
+        <field name="availableFromDate" title="${uiLabelMap.ProductAvailableFromDate}" red-when="after-now" sort-field="true"><display/></field>
+        <field name="availableThruDate" title="${uiLabelMap.ProductAvailableThruDate}" red-when="before-now" sort-field="true"><display/></field>
+        <field name="quantityUomId"><display-entity entity-name="Uom" key-field-name="uomId"/></field>
+        <!-- field name="supplierCommissionPerc"><display/></field--><!-- Unused field, better use commission run using agreements in accounting -->
+        <field name="lastPrice" sort-field="true">
+            <display type="currency" currency="${currencyUomId}"/>
+        </field>
+        <field name="shippingPrice">
+            <display type="currency" currency="${currencyUomId}"/>
+        </field>
+        <field name="editLink" title=" " widget-style="buttontext">
+            <hyperlink description="${uiLabelMap.CommonEdit}" target="EditProductSuppliers" also-hidden="false">
+                <parameter param-name="productId"/>
+                <parameter param-name="partyId"/>
+                <parameter param-name="currencyUomId"/>
+                <parameter param-name="minimumOrderQuantity"/>
+                <parameter param-name="availableFromDate"/>
+            </hyperlink>
+        </field>
+        <field name="deleteLink" title=" " widget-style="buttontext">
+            <hyperlink description="${uiLabelMap.CommonDelete}" target="removeSupplierProduct" also-hidden="false">
+                <parameter param-name="productId"/>
+                <parameter param-name="partyId"/>
+                <parameter param-name="currencyUomId"/>
+                <parameter param-name="minimumOrderQuantity"/>
+                <parameter param-name="availableFromDate"/>
+            </hyperlink>
+        </field>
+    </form>
+    
+    <!-- ProductPrice -->
+    <form name="AddProductPrice" type="single" target="createProductPrice" title=""
+        header-row-style="header-row" default-table-style="basic-table">
+        <auto-fields-service service-name="createProductPrice"/>
+        <field name="fromDate" required-field="true"><date-time default-value="${nowTimestamp}"/></field>
+        <field name="productId"><hidden/></field>
+        <field name="productPriceTypeId" title="${uiLabelMap.ProductPriceType}">
+            <drop-down allow-empty="false" no-current-selected-key="DEFAULT_PRICE">
+                <entity-options entity-name="ProductPriceType">
+                    <entity-order-by field-name="description"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="productPricePurposeId" title="${uiLabelMap.CommonPurpose}">
+            <drop-down allow-empty="false" no-current-selected-key="PURCHASE">
+                <entity-options entity-name="ProductPricePurpose">
+                    <entity-order-by field-name="description"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="currencyUomId" title="${uiLabelMap.ProductCurrencyUomId}">
+            <drop-down allow-empty="false" no-current-selected-key="${defaultOrganizationPartyCurrencyUomId}">
+                <entity-options key-field-name="uomId" description="${description} - ${abbreviation}" entity-name="Uom">
+                    <entity-constraint name="uomTypeId" operator="equals" value="CURRENCY_MEASURE"/>
+                    <entity-order-by field-name="description"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="productStoreGroupId" title="${uiLabelMap.ProductProductStoreGroupId}">
+            <drop-down allow-empty="false" no-current-selected-key="_NA_">
+                <entity-options entity-name="ProductStoreGroup" description="${productStoreGroupName}">
+                    <entity-order-by field-name="productStoreGroupName"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="termUomId">
+            <drop-down allow-empty="true">
+                <entity-options entity-name="UomAndType" key-field-name="uomId" description="${typeDescription}: ${description} (${abbreviation})">
+                    <entity-constraint name="uomTypeId" operator="not-equals" value="CURRENCY_MEASURE"/>
+                    <entity-order-by field-name="typeDescription"/>
+                    <entity-order-by field-name="description"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="customPriceCalcService">
+            <drop-down allow-empty="true">
+                <entity-options entity-name="CustomMethod" key-field-name="customMethodId">
+                    <entity-constraint name="customMethodTypeId" operator="equals" value="PRICE_FORMULA"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="taxAuthPartyId"><lookup target-form-name="LookupPartyName"/></field>
+        <field name="taxAuthGeoId"><lookup target-form-name="LookupGeo"/></field>
+        <field name="submitButton" title="${uiLabelMap.CommonCreate}" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+    <form name="UpdateProductPrice" type="list" target="updateProductPrice" title="" list-name="productPrices"
+        odd-row-style="alternate-row" default-table-style="basic-table" paginate-target="EditProductPrices" separate-columns="true">
+        <auto-fields-service service-name="updateProductPrice" map-name="productPrice"/>
+        <field name="productId"><hidden/></field>
+        <field name="productPriceTypeId" title="${uiLabelMap.ProductPriceType}"><display-entity entity-name="ProductPriceType"/></field>
+        <field name="productPricePurposeId" title="${uiLabelMap.CommonPurpose}"><display-entity entity-name="ProductPricePurpose"/></field>
+        <field name="currencyUomId" title="${uiLabelMap.ProductCurrency}" ><display-entity entity-name="Uom" key-field-name="uomId" description="${description} [${uomId}]"/></field>
+        <field name="productStoreGroupId" title="${uiLabelMap.ProductProductStoreGroup}"><display-entity entity-name="ProductStoreGroup" description="${productStoreGroupName}"/></field>
+        <field name="fromDate" title="${uiLabelMap.CommonFromDateTime}"><display/></field>
 
+        <field name="termUomId">
+            <drop-down allow-empty="true">
+                <entity-options entity-name="UomAndType" key-field-name="uomId" description="${typeDescription}: ${description} (${abbreviation})">
+                    <entity-constraint name="uomTypeId" operator="not-equals" value="CURRENCY_MEASURE"/>
+                    <entity-order-by field-name="typeDescription"/>
+                    <entity-order-by field-name="uomId"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="customPriceCalcService">
+            <drop-down allow-empty="true">
+                <entity-options entity-name="CustomMethod" key-field-name="customMethodId">
+                    <entity-constraint name="customMethodTypeId" operator="equals" value="PRICE_FORMULA"/>
+                </entity-options>
+            </drop-down>
+        </field>
+
+        <field name="lastUpdatedByText" title="${uiLabelMap.ProductLastModifiedBy}:">
+            <display description="[${lastModifiedByUserLogin}] ${uiLabelMap.CommonOn} ${lastModifiedDate}" also-hidden="false"/>
+        </field>
+
+        <field name="taxAuthPartyId"><lookup target-form-name="LookupPartyName"/></field>
+        <field name="taxAuthGeoId"><lookup target-form-name="LookupGeo"/></field>
+
+        <field name="submitButton" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
+
+        <field name="viewHistoryLink" title=" " widget-style="buttontext">
+            <hyperlink description="${uiLabelMap.ProductHistory}" target="ProductPriceHistory" also-hidden="false">
+                <parameter param-name="productId"/>
+                <parameter param-name="productPriceTypeId"/>
+                <parameter param-name="fromDate"/>
+            </hyperlink>
+        </field>
+
+        <field name="deleteLink" title=" " widget-style="buttontext">
+            <hyperlink description="${uiLabelMap.CommonDelete}" target="deleteProductPrice" also-hidden="false">
+                <parameter param-name="productId"/><parameter param-name="productPriceTypeId"/><parameter param-name="productPricePurposeId"/>
+                <parameter param-name="currencyUomId"/><parameter param-name="productStoreGroupId"/><parameter param-name="fromDate"/>
+            </hyperlink>
+        </field>
+    </form>
 
 
 

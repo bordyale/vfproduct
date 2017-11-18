@@ -17,11 +17,11 @@
                 <set field="applicationTitle" value="${uiLabelMap.VfproductApplication}" global="true"/>
             </actions>
             <widgets>
-                <include-screen name="GlobalDecorator" location="component://common/widget/CommonScreens.xml"/>
+               <include-screen name="ApplicationDecorator" location="component://commonext/widget/CommonScreens.xml"/>
             </widgets>
         </section>
-    </screen>
-
+    </screen> 
+    
     <screen name="VfproductCommonDecorator">
         <section>
             <actions>
