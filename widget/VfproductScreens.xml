@@ -155,7 +155,7 @@
                                 </screenlet>
                             </widgets>
                         </section> -->
-                        <section>
+                        <!-- <section>
                             <condition>
                                 <not><if-empty field="product"/></not>
                             </condition>
@@ -171,7 +171,7 @@
                                     </widgets>
                                 </section>
                             </widgets>
-                        </section>
+                        </section> -->
                     </decorator-section>
                 </decorator-screen>
             </widgets>
