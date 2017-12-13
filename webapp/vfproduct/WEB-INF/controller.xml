@@ -21,109 +21,145 @@
 		<response name="success" type="view" value="main" />
 	</request-map>
 	<request-map uri="FindProduct">
-        <security https="true" auth="true"/>
-        <response name="success" type="view" value="FindProduct"/>
-    </request-map>
-    <request-map uri="EditProduct">
-        <security https="true" auth="true"/>
-        <response name="success" type="view" value="EditProduct"/>
-    </request-map>
-    <request-map uri="createProduct">
-        <security https="true" auth="true"/>
-        <event type="service" path="" invoke="createProduct"/>
-        <response name="success" type="view" value="EditProduct"/>
-        <response name="error" type="view" value="EditProduct"/>
-    </request-map>
-    <request-map uri="updateProduct">
-        <security https="true" auth="true"/>
-        <event type="service" path="" invoke="updateProduct"/>
-        <response name="success" type="view" value="EditProduct"/>
-        <response name="error" type="view" value="EditProduct"/>
-    </request-map>
-    <!-- ================ Product Prices Requests ================= -->
-    <request-map uri="EditProductPrices">
-        <security https="true" auth="true"/>
-        <response name="success" type="view" value="EditProductPrices"/>
-    </request-map>
-    <request-map uri="createProductPrice">
-        <security https="true" auth="true"/>
-        <event type="service" path="" invoke="createProductPrice"/>
-        <response name="success" type="request-redirect" value="EditProductPrices"><redirect-parameter name="productId"/></response>
-        <response name="error" type="view" value="EditProductPrices"/>
-    </request-map>
-    <request-map uri="updateProductPrice">
-        <security https="true" auth="true"/>
-        <event type="service" path="" invoke="updateProductPrice"/>
-        <response name="success" type="request-redirect" value="EditProductPrices"><redirect-parameter name="productId"/></response>
-        <response name="error" type="view" value="EditProductPrices"/>
-    </request-map>
-    <request-map uri="ProductPriceHistory">
-        <security https="true" auth="true"/>
-        <response name="success" type="view" value="ProductPriceHistory"/>
-    </request-map>
-    <request-map uri="deleteProductPrice">
-        <security https="true" auth="true"/>
-        <event type="service" path="" invoke="deleteProductPrice"/>
-        <response name="success" type="request-redirect" value="EditProductPrices"><redirect-parameter name="productId"/></response>
-        <response name="error" type="view" value="EditProductPrices"/>
-    </request-map>
-    <!-- ================ Supplier Product Requests ================= -->
-    <request-map uri="EditProductSuppliers">
-        <security https="true" auth="true"/>
-        <response name="success" type="view" value="EditSupplierProduct"/>
-    </request-map>
-    <request-map uri="createSupplierProduct">
-        <security https="true" auth="true"/>
-        <event type="service" path="" invoke="createSupplierProduct"/>
-        <response name="success" type="view" value="EditSupplierProduct"/>
-        <response name="error" type="view" value="EditSupplierProduct"/>
-    </request-map>
-    <request-map uri="updateSupplierProduct">
-        <security https="true" auth="true"/>
-        <event type="service" path="" invoke="updateSupplierProduct"/>
-        <response name="success" type="view" value="EditSupplierProduct"/>
-        <response name="error" type="view" value="EditSupplierProduct"/>
-    </request-map>
-    <request-map uri="removeSupplierProduct">
-        <security https="true" auth="true"/>
-        <event type="service" path="" invoke="removeSupplierProduct"/>
-        <response name="success" type="view" value="EditSupplierProduct"/>
-        <response name="error" type="view" value="EditSupplierProduct"/>
-    </request-map>
-    <request-map uri="createSupplierProductFeature">
-        <security https="true" auth="true"/>
-        <event type="service" path="" invoke="createSupplierProductFeature"/>
-        <response name="success" type="view" value="EditFeature"/>
-        <response name="error" type="view" value="EditFeature"/>
-    </request-map>
-    <request-map uri="updateSupplierProductFeature">
-        <security https="true" auth="true"/>
-        <event type="service" path="" invoke="updateSupplierProductFeature"/>
-        <response name="success" type="view" value="EditFeature"/>
-        <response name="error" type="view" value="EditFeature"/>
-    </request-map>
-    <request-map uri="removeSupplierProductFeature">
-        <security https="true" auth="true"/>
-        <event type="service" path="" invoke="removeSupplierProductFeature"/>
-        <response name="success" type="view" value="EditFeature"/>
-        <response name="error" type="view" value="EditFeature"/>
-    </request-map>
-     <!-- ================ Inventory Requests ================= -->
-    <request-map uri="EditProductInventoryItems">
-        <security https="true" auth="true"/>
-        <response name="success" type="view" value="EditProductInventoryItems"/>
-    </request-map>
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="FindProduct" />
+	</request-map>
+	<request-map uri="EditProduct">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="EditProduct" />
+	</request-map>
+	<request-map uri="createProduct">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="createProduct" />
+		<response name="success" type="view" value="EditProduct" />
+		<response name="error" type="view" value="EditProduct" />
+	</request-map>
+	<request-map uri="updateProduct">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="updateProduct" />
+		<response name="success" type="view" value="EditProduct" />
+		<response name="error" type="view" value="EditProduct" />
+	</request-map>
+	<!-- ================ Product Prices Requests ================= -->
+	<request-map uri="EditProductPrices">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="EditProductPrices" />
+	</request-map>
+	<request-map uri="createProductPrice">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="createProductPrice" />
+		<response name="success" type="request-redirect" value="EditProductPrices">
+			<redirect-parameter name="productId" />
+		</response>
+		<response name="error" type="view" value="EditProductPrices" />
+	</request-map>
+	<request-map uri="updateProductPrice">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="updateProductPrice" />
+		<response name="success" type="request-redirect" value="EditProductPrices">
+			<redirect-parameter name="productId" />
+		</response>
+		<response name="error" type="view" value="EditProductPrices" />
+	</request-map>
+	<request-map uri="ProductPriceHistory">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="ProductPriceHistory" />
+	</request-map>
+	<request-map uri="deleteProductPrice">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="deleteProductPrice" />
+		<response name="success" type="request-redirect" value="EditProductPrices">
+			<redirect-parameter name="productId" />
+		</response>
+		<response name="error" type="view" value="EditProductPrices" />
+	</request-map>
+	<!-- ================ Supplier Product Requests ================= -->
+	<request-map uri="EditProductSuppliers">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="EditSupplierProduct" />
+	</request-map>
+	<request-map uri="createSupplierProduct">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="createSupplierProduct" />
+		<response name="success" type="view" value="EditSupplierProduct" />
+		<response name="error" type="view" value="EditSupplierProduct" />
+	</request-map>
+	<request-map uri="updateSupplierProduct">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="updateSupplierProduct" />
+		<response name="success" type="view" value="EditSupplierProduct" />
+		<response name="error" type="view" value="EditSupplierProduct" />
+	</request-map>
+	<request-map uri="removeSupplierProduct">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="removeSupplierProduct" />
+		<response name="success" type="view" value="EditSupplierProduct" />
+		<response name="error" type="view" value="EditSupplierProduct" />
+	</request-map>
+	<request-map uri="createSupplierProductFeature">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="createSupplierProductFeature" />
+		<response name="success" type="view" value="EditFeature" />
+		<response name="error" type="view" value="EditFeature" />
+	</request-map>
+	<request-map uri="updateSupplierProductFeature">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="updateSupplierProductFeature" />
+		<response name="success" type="view" value="EditFeature" />
+		<response name="error" type="view" value="EditFeature" />
+	</request-map>
+	<request-map uri="removeSupplierProductFeature">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="removeSupplierProductFeature" />
+		<response name="success" type="view" value="EditFeature" />
+		<response name="error" type="view" value="EditFeature" />
+	</request-map>
+	<!-- ================ Inventory Requests ================= -->
+	<request-map uri="EditProductInventoryItems">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="EditProductInventoryItems" />
+	</request-map>
+	<!-- ================ Product Facilities Requests ================= -->
+	<request-map uri="EditProductFacilities">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="EditProductFacilities" />
+	</request-map>
+	<request-map uri="createProductFacility">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="createProductFacility" />
+		<response name="success" type="view" value="EditProductFacilities" />
+		<response name="error" type="view" value="EditProductFacilities" />
+	</request-map>
+	<request-map uri="updateProductFacility">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="updateProductFacility" />
+		<response name="success" type="view" value="EditProductFacilities" />
+		<response name="error" type="view" value="EditProductFacilities" />
+	</request-map>
+	<request-map uri="deleteProductFacility">
+		<security https="true" auth="true" />
+		<event type="service" path="" invoke="deleteProductFacility" />
+		<response name="success" type="view" value="EditProductFacilities" />
+		<response name="error" type="view" value="EditProductFacilities" />
+	</request-map>
 
 
-    
-		
+
+
 
 	<!-- View Mappings -->
-	<view-map name="main" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#main" />
-	<view-map name="FindProduct" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#FindProduct"/>
-	<view-map name="EditProduct" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#EditProduct"/>
-	<view-map name="EditProductPrices" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#EditProductPrices"/>		
- 	<view-map name="EditSupplierProduct" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#EditSupplierProduct"/>
- 	<view-map name="EditProductInventoryItems" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#EditProductInventoryItems"/>
-		
+	<view-map name="main" type="screen"
+		page="component://vfproduct/widget/VfproductScreens.xml#main" />
+	<view-map name="FindProduct" type="screen"
+		page="component://vfproduct/widget/VfproductScreens.xml#FindProduct" />
+	<view-map name="EditProduct" type="screen"
+		page="component://vfproduct/widget/VfproductScreens.xml#EditProduct" />
+	<view-map name="EditProductPrices" type="screen"
+		page="component://vfproduct/widget/VfproductScreens.xml#EditProductPrices" />
+	<view-map name="EditSupplierProduct" type="screen"
+		page="component://vfproduct/widget/VfproductScreens.xml#EditSupplierProduct" />
+	<view-map name="EditProductInventoryItems" type="screen"
+		page="component://vfproduct/widget/VfproductScreens.xml#EditProductInventoryItems" />
+	<view-map name="EditProductFacilities" type="screen"
+		page="component://vfproduct/widget/VfproductScreens.xml#EditProductFacilities" />
 </site-conf>

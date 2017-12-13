@@ -67,16 +67,16 @@
                 <parameter param-name="productId"/>
             </link>
         </menu-item> -->
-        <!-- <menu-item name="EditProductFacilities" title="${uiLabelMap.ProductFacilities}">
+         <menu-item name="EditProductFacilities" title="${uiLabelMap.ProductFacilities}">
             <link target="EditProductFacilities">
                 <parameter param-name="productId"/>
             </link>
-        </menu-item>
-        <menu-item name="EditProductFacilityLocations" title="${uiLabelMap.ProductLocations}">
+        </menu-item> 
+      <!--  <menu-item name="EditProductFacilityLocations" title="${uiLabelMap.ProductLocations}">
             <link target="EditProductFacilityLocations">
                 <parameter param-name="productId"/>
             </link>
-        </menu-item> -->
+        </menu-item>-->
         <menu-item name="EditProductInventoryItems" title="${uiLabelMap.ProductInventory}">
             <link target="EditProductInventoryItems">
                 <parameter param-name="productId"/>

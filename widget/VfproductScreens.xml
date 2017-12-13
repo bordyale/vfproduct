@@ -289,6 +289,36 @@
             </widgets>
         </section>
     </screen>
+    
+<screen name="EditProductFacilities">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleEditProductFacilities"/>
+                <set field="tabButtonItem" value="EditProductFacilities"/>
+                <set field="labelTitleProperty" value="ProductFacilities"/>
+
+                <entity-condition entity-name="ProductFacility" list="productFacilities">
+                    <condition-expr field-name="productId" from-field="parameters.productId"/>
+                    <order-by field-name="facilityId"/>
+                </entity-condition>
+                <entity-condition entity-name="Facility" list="facilities">
+                    <order-by field-name="facilityName"/>
+                </entity-condition>
+            </actions>
+            <widgets>
+                <decorator-screen name="CommonProductDecorator" location="${parameters.productDecoratorLocation}">
+                    <decorator-section name="body">
+                        <screenlet title="${uiLabelMap.PageTitleEditProductFacilities}">
+                            <include-form name="UpdateProductFacilities" location="component://product/widget/catalog/ProductForms.xml"/>
+                        </screenlet>
+                        <screenlet title="${uiLabelMap.ProductAddFacility}">
+                            <include-form name="AddProductFacility" location="component://product/widget/catalog/ProductForms.xml"/>
+                        </screenlet>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
 
 
 
