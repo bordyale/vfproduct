@@ -249,18 +249,7 @@
 			</drop-down>
 		</field>
 
-		<field position="1" name="productWeight" title="${uiLabelMap.ProductProductWeight}">
-			<text size="10" maxlength="20" />
-		</field>
-		<field position="2" name="weightUomId" title="${uiLabelMap.ProductWeightUomId}">
-			<drop-down allow-empty="true">
-				<entity-options entity-name="Uom" key-field-name="uomId"
-					description="${description} [${abbreviation}]">
-					<entity-constraint name="uomTypeId" value="WEIGHT_MEASURE" />
-					<entity-order-by field-name="description" />
-				</entity-options>
-			</drop-down>
-		</field>
+		
 		<field position="3" name="shippingWeight" title="${uiLabelMap.ProductShippingWeight}">
 			<text size="10" maxlength="20" />
 		</field>
@@ -456,6 +445,18 @@
 				<sort-field name="autoCreateKeywords" />
 			</field-group>
 		</sort-order> -->
+		<field position="1" name="productWeight" title="${uiLabelMap.ProductProductWeight}">
+			<text size="10" maxlength="20" />
+		</field>
+		<field position="2" name="weightUomId" title="${uiLabelMap.ProductWeightUomId}">
+			<drop-down allow-empty="true">
+				<entity-options entity-name="Uom" key-field-name="uomId"
+					description="${description} [${abbreviation}]">
+					<entity-constraint name="uomTypeId" value="WEIGHT_MEASURE" />
+					<entity-order-by field-name="description" />
+				</entity-options>
+			</drop-down>
+		</field>
 		<field name="submitButton" title="${uiLabelMap.ProductUpdateProduct}"
 			use-when="product!=null" widget-style="smallSubmit">
 			<submit button-type="button" />
