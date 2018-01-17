@@ -258,7 +258,7 @@
 
                 <set field="productId" from-field="parameters.productId"/>
                 <entity-one entity-name="Product" value-field="product"/>
-                <script location="component://product/groovyScripts/catalog/product/EditProductInventoryItems.groovy"/>
+                <script location="component://vfproduct/groovyScripts/EditProductInventoryItems.groovy"/>
             </actions>
             <widgets>
                 <decorator-screen name="CommonProductDecorator" location="${parameters.productDecoratorLocation}">
@@ -274,14 +274,14 @@
                             </widgets>
                             <fail-widgets>
                                 <platform-specific>
-                                    <html><html-template location="component://product/template/product/ProductInventorySummary.ftl"/></html>
+                                    <html><html-template location="component://vfproduct/template/ProductInventorySummary.ftl"/></html>
                                 </platform-specific>
                                 <screenlet title="${uiLabelMap.ProductOutstandingPurchaseOrders}">
-                                    <include-form name="OutstandingPurchaseOrders" location="component://product/widget/catalog/ProductForms.xml"/>
+                                    <include-form name="OutstandingPurchaseOrders" location="component://vfproduct/widget/VfproductForms.xml"/>
                                 </screenlet>
-                                <platform-specific>
+                                <!-- <platform-specific>
                                     <html><html-template location="component://product/template/product/EditProductInventoryItems.ftl"/></html>
-                                </platform-specific>
+                                </platform-specific> -->
                             </fail-widgets>
                         </section>
                     </decorator-section>

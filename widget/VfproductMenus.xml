@@ -80,7 +80,7 @@
         <menu-item name="EditProductInventoryItems" title="${uiLabelMap.ProductInventory}">
             <link target="EditProductInventoryItems">
                 <parameter param-name="productId"/>
-                <parameter param-name="showAllFacilities" value="Y"/>
+                <!-- <parameter param-name="showAllFacilities" value="Y"/> -->
             </link>
         </menu-item>
         <menu-item name="EditSupplierProduct" title="${uiLabelMap.ProductSuppliers}">

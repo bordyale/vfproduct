@@ -800,6 +800,26 @@
 			</hyperlink>
 		</field>
 	</form>
+	
+	<form name="OutstandingPurchaseOrders" type="list" list-name="purchaseOrders"
+        odd-row-style="alternate-row" default-table-style="basic-table">
+        <field name="orderDate"><display/></field>
+        <field name="orderId">
+            <hyperlink description="${orderId}" target="/vforder/control/orderview" also-hidden="false" target-type="inter-app">
+                <parameter param-name="orderId"/>
+            </hyperlink>
+        </field>
+        <field name="orderItemSeqId"><display/></field>
+        <field name="quantity"><display/></field>
+        <field name="quantityReceived"><display/></field>
+        <field name="quantityToReceive"><display/></field>
+        <!-- <field name="cancelQuantity"><display/></field>
+        <field name="itemStatusId"><display-entity entity-name="StatusItem" key-field-name="statusId"/></field>
+        <field name="estimatedShipDate"><display/></field>
+        <field name="estimatedDeliveryDate"><display/></field>
+        <field name="shipBeforeDate"><display/></field>
+        <field name="shipAfterDate"><display/></field> -->
+    </form>
 
 
 
