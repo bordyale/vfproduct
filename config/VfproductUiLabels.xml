@@ -21,8 +21,23 @@
         <value xml:lang="zh-TW">??????????????????????????????.</value>
     </property>
     <property key="ProductProductId">
-        <value xml:lang="en">You are not allowed to view this page.</value>
-        <value xml:lang="zh">?????????????????????????????????</value>
-        <value xml:lang="zh-TW">??????????????????????????????.</value>
+        <value xml:lang="en">Product Id</value>
+        <value xml:lang="hu">Termék Azonosító</value>
+    </property>
+    <property key="ProductInternalName">
+        <value xml:lang="en">Product Internal Name</value>
+        <value xml:lang="hu">Termék belső név</value>
+    </property>
+    <property key="ProductProducts">
+        <value xml:lang="en">Products</value>
+        <value xml:lang="hu">Termékek</value>
+    </property>
+    <property key="ProductNewProduct">
+        <value xml:lang="en">New Product</value>
+        <value xml:lang="hu">Új Termék</value>
+    </property>
+    <property key="PageTitleFindProduct">
+        <value xml:lang="en">Find Product</value>
+        <value xml:lang="hu">Kerés Termék</value>
     </property>
 </resource>
