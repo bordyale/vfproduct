@@ -11,4 +11,9 @@
         </description>
     </service> 
     
+    <service name="vfproductGenericPermission" engine="simple"
+             location="component://vfproduct/minilang/VfproductPermissionServices.xml" invoke="vfproductGenericPermission">
+        <implements service="permissionInterface"/>
+    </service>
+    
 </services>
