@@ -40,4 +40,48 @@
         <value xml:lang="en">Find Product</value>
         <value xml:lang="hu">Kerés Termék</value>
     </property>
+    <property key="ProductProduct">
+        <value xml:lang="en">Product</value>
+        <value xml:lang="hu">Termék</value>
+    </property>
+    <property key="PageTitleEditProduct">
+        <value xml:lang="en">Edit Product</value>
+        <value xml:lang="hu">Termék szerkeztés</value>
+    </property>
+    <property key="ProductProductName">
+        <value xml:lang="en">Product Name</value>
+        <value xml:lang="hu">Termék név</value>
+    </property>
+    <property key="ProductProductWeight">
+        <value xml:lang="en">Product Weight</value>
+        <value xml:lang="hu">Súly</value>
+    </property>
+    <property key="ProductProductType">
+        <value xml:lang="en">Product Type</value>
+        <value xml:lang="hu">Termék Typus</value>
+    </property>
+    <property key="ProductWeightUomId">
+        <value xml:lang="en">Measure type</value>
+        <value xml:lang="hu">Mennyiegység</value>
+    </property>
+    <property key="ProductUpdateProduct">
+        <value xml:lang="en">Update Product</value>
+        <value xml:lang="hu">Mentés</value>
+    </property>
+    <property key="ProductProduct">
+        <value xml:lang="en">Product</value>
+        <value xml:lang="hu">Termék</value>
+    </property>
+    <property key="ProductPrices">
+        <value xml:lang="en">Product Prices</value>
+        <value xml:lang="hu">Termék Árak</value>
+    </property>
+    <property key="ProductFacilities">
+        <value xml:lang="en">Product Facilities</value>
+        <value xml:lang="hu">Termék Raktárok</value>
+    </property>
+    <property key="ProductSuppliers">
+        <value xml:lang="en">Product Suppliers</value>
+        <value xml:lang="hu">Termék Beszállítók</value>
+    </property>
 </resource>

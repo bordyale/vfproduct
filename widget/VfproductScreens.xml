@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns="http://ofbiz.apache.org/Widget-Screen" xsi:schemaLocation="http://ofbiz.apache.org/Widget-Screen http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	xmlns="http://ofbiz.apache.org/Widget-Screen"
+	xsi:schemaLocation="http://ofbiz.apache.org/Widget-Screen http://ofbiz.apache.org/dtds/widget-screen.xsd">
 
 	<screen name="main">
 		<section>
@@ -21,10 +22,9 @@
 		<section>
 			<actions>
 				<set field="headerItem" value="products" />
-				<property-map resource="PartyUiLabels" map-name="uiLabelMap"
-					global="true" />
-				<property-map resource="OrderUiLabels" map-name="uiLabelMap"
-					global="true" />
+				<!-- <property-map resource="PartyUiLabels" map-name="uiLabelMap" global="true" 
+					/> <property-map resource="OrderUiLabels" map-name="uiLabelMap" global="true" 
+					/> -->
 				<set field="productId" from-field="parameters.productId" global="true" />
 				<entity-one entity-name="Product" value-field="product" />
 				<set field="product" from-field="product" global="true" />
@@ -50,7 +50,8 @@
 							<actions>
 								<set field="productId" from-field="parameters.productId" />
 								<entity-one entity-name="Product" value-field="product" />
-								<set field="defaultOrganizationPartyCurrencyUomId" value="HUF" global="true"/>
+								<set field="defaultOrganizationPartyCurrencyUomId" value="HUF"
+									global="true" />
 							</actions>
 							<widgets>
 								<section>
@@ -60,7 +61,8 @@
 										</not>
 									</condition>
 									<widgets>
-										<include-menu name="ProductTabBar" location="component://vfproduct/widget/VfproductMenus.xml"/>
+										<include-menu name="ProductTabBar"
+											location="component://vfproduct/widget/VfproductMenus.xml" />
 										<!-- <include-menu name="ProductSubTabBar" location="component://product/widget/catalog/CatalogMenus.xml"/> -->
 										<image src="${product.smallImageUrl}" url-mode="content"
 											alt="${product.internalName}" style="cssImgSmall" />
@@ -100,12 +102,12 @@
 				<set field="titleProperty" value="PageTitleFindProduct" />
 			</actions>
 			<widgets>
-				<decorator-screen name="CommonProductDecorator"
-					location="${parameters.productDecoratorLocation}">
+				<decorator-screen name="VfproductCommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
 					<decorator-section name="body">
 						<section>
 							<condition>
-								<if-service-permission service-name="acctgAgreementPermissionCheck"
+								<if-service-permission service-name="vfproductGenericPermission"
 									main-action="VIEW" />
 							</condition>
 							<widgets>
@@ -132,192 +134,205 @@
 		</section>
 	</screen>
 	<screen name="EditProduct">
-        <section>
-            <actions>
-                <set field="titleProperty" value="PageTitleEditProduct"/>
-                <set field="tabButtonItem" value="EditProduct"/>
-                <set field="labelTitleProperty" value="ProductProduct"/>
-            </actions>
-            <widgets>
-                <decorator-screen name="CommonProductDecorator" location="${parameters.productDecoratorLocation}">
-                    <decorator-section name="body">
-                        <screenlet title="${groovy: parameters.productId ? uiLabelMap.PageTitleEditProduct : uiLabelMap.ProductNewProduct}">
-                            <include-form name="EditProduct" location="component://vfproduct/widget/VfproductForms.xml"/>
-                        </screenlet>
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleEditProduct" />
+				<set field="tabButtonItem" value="EditProduct" />
+				<set field="labelTitleProperty" value="ProductProduct" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonProductDecorator"
+					location="${parameters.productDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet
+							title="${groovy: parameters.productId ? uiLabelMap.PageTitleEditProduct : uiLabelMap.ProductNewProduct}">
+							<include-form name="EditProduct"
+								location="component://vfproduct/widget/VfproductForms.xml" />
+						</screenlet>
 
-                        <!-- <section>
-                            <condition>
-                                <not><if-empty field="product"/></not>
-                            </condition>
-                            <widgets>
-                                <screenlet title="${uiLabelMap.ProductDuplicateProduct}">
-                                    <include-form name="EditProductDup" location="component://product/widget/catalog/ProductForms.xml"/>
-                                </screenlet>
-                            </widgets>
-                        </section> -->
-                        <!-- <section>
-                            <condition>
-                                <not><if-empty field="product"/></not>
-                            </condition>
-                            <widgets>
-                                <section>
-                                    <condition>
-                                        <if-compare field="product.isVirtual" operator="equals" type="String" value="Y"/>
-                                    </condition>
-                                    <widgets>
-                                        <screenlet title="${uiLabelMap.ProductUpdateProductVariants}">
-                                            <include-form name="UpdateProductVariants" location="component://product/widget/catalog/ProductForms.xml"/>
-                                        </screenlet>
-                                    </widgets>
-                                </section>
-                            </widgets>
-                        </section> -->
-                    </decorator-section>
-                </decorator-screen>
-            </widgets>
-        </section>
-    </screen>
-     <screen name="EditProductPrices">
-        <section>
-            <actions>
-                <set field="titleProperty" value="PageTitleEditProductPrices"/>
-                <set field="tabButtonItem" value="EditProductPrices"/>
-                <set field="labelTitleProperty" value="ProductPrices"/>
+						<!-- <section> <condition> <not><if-empty field="product"/></not> </condition> 
+							<widgets> <screenlet title="${uiLabelMap.ProductDuplicateProduct}"> <include-form 
+							name="EditProductDup" location="component://product/widget/catalog/ProductForms.xml"/> 
+							</screenlet> </widgets> </section> -->
+						<!-- <section> <condition> <not><if-empty field="product"/></not> </condition> 
+							<widgets> <section> <condition> <if-compare field="product.isVirtual" operator="equals" 
+							type="String" value="Y"/> </condition> <widgets> <screenlet title="${uiLabelMap.ProductUpdateProductVariants}"> 
+							<include-form name="UpdateProductVariants" location="component://product/widget/catalog/ProductForms.xml"/> 
+							</screenlet> </widgets> </section> </widgets> </section> -->
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditProductPrices">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleEditProductPrices" />
+				<set field="tabButtonItem" value="EditProductPrices" />
+				<set field="labelTitleProperty" value="ProductPrices" />
 
-                <entity-and entity-name="ProductPrice" list="productPrices">
-                    <field-map field-name="productId" from-field="parameters.productId"/>
-                    <order-by field-name="productStoreGroupId"/>
-                    <order-by field-name="productPricePurposeId"/>
-                    <order-by field-name="productPriceTypeId"/>
-                    <order-by field-name="currencyUomId"/>
-                    <order-by field-name="fromDate"/>
-                </entity-and>
+				<entity-and entity-name="ProductPrice" list="productPrices">
+					<field-map field-name="productId" from-field="parameters.productId" />
+					<order-by field-name="productStoreGroupId" />
+					<order-by field-name="productPricePurposeId" />
+					<order-by field-name="productPriceTypeId" />
+					<order-by field-name="currencyUomId" />
+					<order-by field-name="fromDate" />
+				</entity-and>
 
-                <property-to-field field="defaultCurrencyUomId" resource="general" property="currency.uom.id.default" default="HUF"/>
-            </actions>
-            <widgets>
-                <decorator-screen name="CommonProductDecorator" location="${parameters.productDecoratorLocation}">
-                    <decorator-section name="body">
-                        <screenlet title="${uiLabelMap.PageTitleEditProductPrices}">
-                            <include-form name="UpdateProductPrice" location="component://vfproduct/widget/VfproductForms.xml"/>
-                        </screenlet>
-                        <screenlet title="${uiLabelMap.PageTitleAddProductPrices}">
-                            <label style="h3" text="${uiLabelMap.ProductPricesWarning}"/>
-                            <include-form name="AddProductPrice" location="component://vfproduct/widget/VfproductForms.xml"/>
-                        </screenlet>
-                    </decorator-section>
-                </decorator-screen>
-            </widgets>
-        </section>
-    </screen>
-     <screen name="EditSupplierProduct">
-        <section>
-            <actions>
-                <set field="titleProperty" value="PageTitleEditSupplierProduct"/>
-                <set field="tabButtonItem" value="EditSupplierProduct"/>
-                <set field="labelTitleProperty" value="ProductSuppliers"/>
+				<property-to-field field="defaultCurrencyUomId"
+					resource="general" property="currency.uom.id.default" default="HUF" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonProductDecorator"
+					location="${parameters.productDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="${uiLabelMap.PageTitleEditProductPrices}">
+							<include-form name="UpdateProductPrice"
+								location="component://vfproduct/widget/VfproductForms.xml" />
+						</screenlet>
+						<screenlet title="${uiLabelMap.PageTitleAddProductPrices}">
+							<label style="h3" text="${uiLabelMap.ProductPricesWarning}" />
+							<include-form name="AddProductPrice"
+								location="component://vfproduct/widget/VfproductForms.xml" />
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditSupplierProduct">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleEditSupplierProduct" />
+				<set field="tabButtonItem" value="EditSupplierProduct" />
+				<set field="labelTitleProperty" value="ProductSuppliers" />
 
-                <!-- default currency in framework/common/config/general.properties -->
-                <property-to-field field="defaultCurrencyUomId" resource="general" property="currency.uom.id.default" default="HUF"/>
-                <set field="orderBy" from-field="parameters.sortField" default-value="partyId"/>
-                <entity-and entity-name="SupplierProduct" list="productSuppliers">
-                    <field-map field-name="productId" from-field="parameters.productId"/>
-                    <order-by field-name="${orderBy}"/>
-                </entity-and>
-                <entity-one entity-name="SupplierProduct" value-field="supplierProduct" auto-field-map="true"/>
-            </actions>
-            <widgets>
-                <decorator-screen name="CommonProductDecorator" location="${parameters.productDecoratorLocation}">
-                    <decorator-section name="body">
-                        <screenlet title="${uiLabelMap.PageTitleEditSupplierProduct}">
-                            <include-form name="ListSupplierProducts" location="component://vfproduct/widget/VfproductForms.xml"/>
-                        </screenlet>
-                        <section>
-                            <condition><not><if-empty field="supplierProduct"/></not></condition>
-                            <widgets>
-                                <link target="EditProductSuppliers" style="buttontext" text="${uiLabelMap.ProductNewProductSupplier}">
-                                    <parameter param-name="productId"/>
-                                </link>
-                            </widgets>
-                        </section>
-                        <screenlet title="${uiLabelMap.PageTitleAddProductSupplier}">
-                            <include-form name="AddSupplierProduct" location="component://vfproduct/widget/VfproductForms.xml"/>
-                        </screenlet>
-                    </decorator-section>
-                </decorator-screen>
-            </widgets>
-        </section>
-    </screen>
-     <screen name="EditProductInventoryItems">
-        <section>
-            <actions>
-                <property-map resource="OrderUiLabels" map-name="uiLabelMap"/>
-                <set field="titleProperty" value="PageTitleEditProductInventoryItems"/>
-                <set field="tabButtonItem" value="EditProductInventoryItems"/>
-                <set field="labelTitleProperty" value="ProductInventorySummary"/>
+				<!-- default currency in framework/common/config/general.properties -->
+				<property-to-field field="defaultCurrencyUomId"
+					resource="general" property="currency.uom.id.default" default="HUF" />
+				<set field="orderBy" from-field="parameters.sortField"
+					default-value="partyId" />
+				<entity-and entity-name="SupplierProduct" list="productSuppliers">
+					<field-map field-name="productId" from-field="parameters.productId" />
+					<order-by field-name="${orderBy}" />
+				</entity-and>
+				<entity-one entity-name="SupplierProduct" value-field="supplierProduct"
+					auto-field-map="true" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonProductDecorator"
+					location="${parameters.productDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="${uiLabelMap.PageTitleEditSupplierProduct}">
+							<include-form name="ListSupplierProducts"
+								location="component://vfproduct/widget/VfproductForms.xml" />
+						</screenlet>
+						<section>
+							<condition>
+								<not>
+									<if-empty field="supplierProduct" />
+								</not>
+							</condition>
+							<widgets>
+								<link target="EditProductSuppliers" style="buttontext"
+									text="${uiLabelMap.ProductNewProductSupplier}">
+									<parameter param-name="productId" />
+								</link>
+							</widgets>
+						</section>
+						<screenlet title="${uiLabelMap.PageTitleAddProductSupplier}">
+							<include-form name="AddSupplierProduct"
+								location="component://vfproduct/widget/VfproductForms.xml" />
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="EditProductInventoryItems">
+		<section>
+			<actions>
+				<property-map resource="OrderUiLabels" map-name="uiLabelMap" />
+				<set field="titleProperty" value="PageTitleEditProductInventoryItems" />
+				<set field="tabButtonItem" value="EditProductInventoryItems" />
+				<set field="labelTitleProperty" value="ProductInventorySummary" />
 
-                <set field="productId" from-field="parameters.productId"/>
-                <entity-one entity-name="Product" value-field="product"/>
-                <script location="component://vfproduct/groovyScripts/EditProductInventoryItems.groovy"/>
-            </actions>
-            <widgets>
-                <decorator-screen name="CommonProductDecorator" location="${parameters.productDecoratorLocation}">
-                    <decorator-section name="body">
-                        <section>
-                            <condition>
-                                <if-compare field="product.isVirtual" operator="equals" type="String" value="Y"/>
-                            </condition>
-                            <widgets>
-                                <platform-specific>
-                                    <html><html-template location="component://product/template/product/EditVirtualProductInventory.ftl"/></html>
-                                </platform-specific>
-                            </widgets>
-                            <fail-widgets>
-                                <platform-specific>
-                                    <html><html-template location="component://vfproduct/template/ProductInventorySummary.ftl"/></html>
-                                </platform-specific>
-                                <screenlet title="${uiLabelMap.ProductOutstandingPurchaseOrders}">
-                                    <include-form name="OutstandingPurchaseOrders" location="component://vfproduct/widget/VfproductForms.xml"/>
-                                </screenlet>
-                                <!-- <platform-specific>
-                                    <html><html-template location="component://product/template/product/EditProductInventoryItems.ftl"/></html>
-                                </platform-specific> -->
-                            </fail-widgets>
-                        </section>
-                    </decorator-section>
-                </decorator-screen>
-            </widgets>
-        </section>
-    </screen>
-    
-<screen name="EditProductFacilities">
-        <section>
-            <actions>
-                <set field="titleProperty" value="PageTitleEditProductFacilities"/>
-                <set field="tabButtonItem" value="EditProductFacilities"/>
-                <set field="labelTitleProperty" value="ProductFacilities"/>
+				<set field="productId" from-field="parameters.productId" />
+				<entity-one entity-name="Product" value-field="product" />
+				<script
+					location="component://vfproduct/groovyScripts/EditProductInventoryItems.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonProductDecorator"
+					location="${parameters.productDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-compare field="product.isVirtual" operator="equals"
+									type="String" value="Y" />
+							</condition>
+							<widgets>
+								<platform-specific>
+									<html>
+										<html-template
+											location="component://product/template/product/EditVirtualProductInventory.ftl" />
+									</html>
+								</platform-specific>
+							</widgets>
+							<fail-widgets>
+								<platform-specific>
+									<html>
+										<html-template
+											location="component://vfproduct/template/ProductInventorySummary.ftl" />
+									</html>
+								</platform-specific>
+								<screenlet title="${uiLabelMap.ProductOutstandingPurchaseOrders}">
+									<include-form name="OutstandingPurchaseOrders"
+										location="component://vfproduct/widget/VfproductForms.xml" />
+								</screenlet>
+								<!-- <platform-specific> <html><html-template location="component://product/template/product/EditProductInventoryItems.ftl"/></html> 
+									</platform-specific> -->
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
 
-                <entity-condition entity-name="ProductFacility" list="productFacilities">
-                    <condition-expr field-name="productId" from-field="parameters.productId"/>
-                    <order-by field-name="facilityId"/>
-                </entity-condition>
-                <entity-condition entity-name="Facility" list="facilities">
-                    <order-by field-name="facilityName"/>
-                </entity-condition>
-            </actions>
-            <widgets>
-                <decorator-screen name="CommonProductDecorator" location="${parameters.productDecoratorLocation}">
-                    <decorator-section name="body">
-                        <screenlet title="${uiLabelMap.PageTitleEditProductFacilities}">
-                            <include-form name="UpdateProductFacilities" location="component://product/widget/catalog/ProductForms.xml"/>
-                        </screenlet>
-                        <screenlet title="${uiLabelMap.ProductAddFacility}">
-                            <include-form name="AddProductFacility" location="component://product/widget/catalog/ProductForms.xml"/>
-                        </screenlet>
-                    </decorator-section>
-                </decorator-screen>
-            </widgets>
-        </section>
-    </screen>
+	<screen name="EditProductFacilities">
+		<section>
+			<actions>
+				<set field="titleProperty" value="PageTitleEditProductFacilities" />
+				<set field="tabButtonItem" value="EditProductFacilities" />
+				<set field="labelTitleProperty" value="ProductFacilities" />
+
+				<entity-condition entity-name="ProductFacility"
+					list="productFacilities">
+					<condition-expr field-name="productId" from-field="parameters.productId" />
+					<order-by field-name="facilityId" />
+				</entity-condition>
+				<entity-condition entity-name="Facility" list="facilities">
+					<order-by field-name="facilityName" />
+				</entity-condition>
+			</actions>
+			<widgets>
+				<decorator-screen name="CommonProductDecorator"
+					location="${parameters.productDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="${uiLabelMap.PageTitleEditProductFacilities}">
+							<include-form name="UpdateProductFacilities"
+								location="component://product/widget/catalog/ProductForms.xml" />
+						</screenlet>
+						<screenlet title="${uiLabelMap.ProductAddFacility}">
+							<include-form name="AddProductFacility"
+								location="component://product/widget/catalog/ProductForms.xml" />
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
 
 </screens>
