@@ -191,7 +191,7 @@
         <menu-item name="EditProduct" title="${uiLabelMap.ProductNewProduct}" widget-style="buttontext create">
             <link target="EditProduct"/>
         </menu-item>
-        <menu-item name="CreateVirtualWithVariantsForm" title="${uiLabelMap.ProductNewVirtualProduct}" widget-style="buttontext create">
+        <!-- <menu-item name="CreateVirtualWithVariantsForm" title="${uiLabelMap.ProductNewVirtualProduct}" widget-style="buttontext create">
             <condition>
                 <not><if-empty field="product"/></not>
             </condition>
@@ -215,9 +215,9 @@
                 <parameter param-name="productId"/>
             </link>
         </menu-item>
-<!--         <menu-item name="ProductTags" title="${uiLabelMap.ProductTags}"> -->
-<!--             <link target="EditProductTag"/> -->
-<!--         </menu-item> -->
+        <menu-item name="ProductTags" title="${uiLabelMap.ProductTags}">
+            <link target="EditProductTag"/>
+        </menu-item>
         <menu-item name="ExpandAll" title="${uiLabelMap.CommonExpandAll}" widget-style="buttontext expand-all">
             <condition>
                 <and>
@@ -233,7 +233,7 @@
                 </and>
             </condition>
             <link target="javascript:expandAll(false);" url-mode="plain"/>
-        </menu-item>
+        </menu-item> -->
     </menu>
     
 </menus>

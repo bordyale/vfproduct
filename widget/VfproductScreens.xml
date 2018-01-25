@@ -63,7 +63,7 @@
 									<widgets>
 										<include-menu name="ProductTabBar"
 											location="component://vfproduct/widget/VfproductMenus.xml" />
-										<!-- <include-menu name="ProductSubTabBar" location="component://product/widget/catalog/CatalogMenus.xml"/> -->
+										<include-menu name="ProductSubTabBar" location="component://vfproduct/widget/VfproductMenus.xml"/>
 										<image src="${product.smallImageUrl}" url-mode="content"
 											alt="${product.internalName}" style="cssImgSmall" />
 										<label style="h1">${uiLabelMap[labelTitleProperty]}
@@ -99,7 +99,7 @@
 	<screen name="FindProduct">
 		<section>
 			<actions>
-				<set field="titleProperty" value="PageTitleFindProduct" />
+				<set field="headerItem" value="products" />
 			</actions>
 			<widgets>
 				<decorator-screen name="VfproductCommonDecorator"

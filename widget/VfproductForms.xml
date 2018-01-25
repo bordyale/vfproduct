@@ -94,9 +94,8 @@
 			required-field="true">
 			<text size="30" maxlength="255" />
 		</field>
-		<field position="2" name="brandName" title="${uiLabelMap.ProductBrandName}">
-			<text size="30" maxlength="60" />
-		</field>
+		<!-- <field position="2" name="brandName" title="${uiLabelMap.ProductBrandName}"> 
+			<text size="30" maxlength="60" /> </field> -->
 		<field name="productName" title="${uiLabelMap.ProductProductName}">
 			<text size="30" maxlength="255" />
 		</field>
@@ -129,322 +128,148 @@
 		<field name="requireInventory">
 			<hidden value="N" />
 		</field>
-		<!-- <field name="inventoryMessage" title="${uiLabelMap.ProductInventoryMessage}">
-			<text size="20" maxlength="255" />
-		</field>
-		<field name="inventoryItemTypeId" title="${uiLabelMap.ProductInventoryItemTypeId}"
-			use-when="product==null">
-			<drop-down allow-empty="false">
-				<entity-options entity-name="InventoryItemType"
-					key-field-name="inventoryItemTypeId">
-					<entity-order-by field-name="description" />
-				</entity-options>
-			</drop-down>
-		</field>
-		<field name="inventoryItemTypeId" title="${uiLabelMap.ProductInventoryItemTypeId}"
-			use-when="product!=null">
-			<display-entity entity-name="InventoryItemType" />
-		</field>
-
-		<field name="lotIdFilledIn" title="${uiLabelMap.ProductLotId}">
-			<drop-down allow-empty="false">
-				<option key="Allowed" description="${uiLabelMap.lotIdFilledInAllowed}" />
-				<option key="Mandatory" description="${uiLabelMap.lotIdFilledInMandatory}" />
-				<option key="Forbidden" description="${uiLabelMap.lotIdFilledInForbidden}" />
-			</drop-down>
-		</field>
-
-		<field position="1" name="ratingTypeEnum" title="${uiLabelMap.ProductRatingTypeEnum}">
-			<drop-down allow-empty="true">
-				<entity-options entity-name="Enumeration"
-					key-field-name="enumId">
-					<entity-constraint name="enumTypeId" value="PROD_RATING_TYPE" />
-					<entity-order-by field-name="sequenceId" />
-				</entity-options>
-			</drop-down>
-		</field>
-		<field position="2" title="${uiLabelMap.ProductRating}" name="productRating">
-			<text size="10" maxlength="20" />
-		</field>
-
-		<field position="1" name="requireAmount" title="${uiLabelMap.ProductRequireAmount}"
-			tooltip="${uiLabelMap.ProductRequireCustomerAmount}">
-			<drop-down allow-empty="true">
-				<option key="Y" description="${uiLabelMap.CommonY}" />
-				<option key="N" description="${uiLabelMap.CommonN}" />
-			</drop-down>
-		</field>
-		<field position="2" name="amountUomTypeId" title="${uiLabelMap.ProductAmountUomTypeId}">
-			<drop-down allow-empty="true">
-				<entity-options entity-name="UomType" key-field-name="uomTypeId">
-					<entity-order-by field-name="description" />
-				</entity-options>
-			</drop-down>
-		</field>
-		<field position="1" title="${uiLabelMap.ProductProductHeight}"
-			name="productHeight">
-			<text size="10" maxlength="20" />
-		</field>
-		<field position="2" name="heightUomId" title="${uiLabelMap.ProductHeightUomId}">
-			<drop-down allow-empty="true">
-				<entity-options entity-name="Uom" key-field-name="uomId"
-					description="${description} [${abbreviation}]">
-					<entity-constraint name="uomTypeId" value="LENGTH_MEASURE" />
-					<entity-order-by field-name="description" />
-				</entity-options>
-			</drop-down>
-		</field>
-		<field position="3" title="${uiLabelMap.ProductShippingHeight}"
-			name="shippingHeight">
-			<text size="10" maxlength="20" />
-		</field>
-
-		<field position="1" title="${uiLabelMap.ProductProductWidth}"
-			name="productWidth">
-			<text size="10" maxlength="20" />
-		</field>
-		<field position="2" name="widthUomId" title="${uiLabelMap.ProductWidthUomId}">
-			<drop-down allow-empty="true">
-				<entity-options entity-name="Uom" key-field-name="uomId"
-					description="${description} [${abbreviation}]">
-					<entity-constraint name="uomTypeId" value="LENGTH_MEASURE" />
-					<entity-order-by field-name="description" />
-				</entity-options>
-			</drop-down>
-		</field>
-		<field position="3" title="${uiLabelMap.ProductShippingWidth}"
-			name="shippingWidth">
-			<text size="10" maxlength="20" />
-		</field>
-
-		<field position="1" title="${uiLabelMap.ProductProductDepth}"
-			name="productDepth">
-			<text size="10" maxlength="20" />
-		</field>
-		<field position="2" name="depthUomId" title="${uiLabelMap.ProductDepthUomId}">
-			<drop-down allow-empty="true">
-				<entity-options entity-name="Uom" key-field-name="uomId"
-					description="${description} [${abbreviation}]">
-					<entity-constraint name="uomTypeId" value="LENGTH_MEASURE" />
-					<entity-order-by field-name="description" />
-				</entity-options>
-			</drop-down>
-		</field>
-		<field position="3" title="${uiLabelMap.ProductShippingDepth}"
-			name="shippingDepth">
-			<text size="10" maxlength="20" />
-		</field>
-
-		<field position="1" title="${uiLabelMap.ProductProductDiameter}"
-			name="productDiameter">
-			<text size="10" maxlength="20" />
-		</field>
-		<field position="2" name="diameterUomId" title="${uiLabelMap.ProductDiameterUomId}">
-			<drop-down allow-empty="true">
-				<entity-options entity-name="Uom" key-field-name="uomId"
-					description="${description} [${abbreviation}]">
-					<entity-constraint name="uomTypeId" value="LENGTH_MEASURE" />
-					<entity-order-by field-name="description" />
-				</entity-options>
-			</drop-down>
-		</field>
-
-		
-		<field position="3" name="shippingWeight" title="${uiLabelMap.ProductShippingWeight}">
-			<text size="10" maxlength="20" />
-		</field>
-
-		<field position="1" name="quantityIncluded" title="${uiLabelMap.ProductQuantityIncluded}">
-			<text size="10" maxlength="20" />
-		</field>
-		<field position="2" name="quantityUomId" title="${uiLabelMap.ProductQuantityUomId}">
-			<drop-down allow-empty="true">
-				<entity-options key-field-name="uomId"
-					description="${description} - ${abbreviation}" entity-name="Uom">
-					<entity-constraint name="uomTypeId" operator="not-equals"
-						value="CURRENCY_MEASURE" />
-					<entity-order-by field-name="description" />
-				</entity-options>
-			</drop-down>
-		</field>
-		<field position="1" name="piecesIncluded" title="${uiLabelMap.ProductPiecesIncluded}">
-			<text size="10" maxlength="20" />
-		</field>
-		<field position="2" name="inShippingBox" title="${uiLabelMap.ProductShippingBox}">
-			<drop-down>
-				<option key="N" description="${uiLabelMap.CommonN}" />
-				<option key="Y" description="${uiLabelMap.CommonY}" />
-			</drop-down>
-		</field>
-		<field position="3" name="defaultShipmentBoxTypeId"
-			title="${uiLabelMap.ProductDefaultShipmentBoxTypeId}">
-			<drop-down allow-empty="true">
-				<entity-options entity-name="ShipmentBoxType"
-					key-field-name="shipmentBoxTypeId">
-					<entity-order-by field-name="description" />
-				</entity-options>
-			</drop-down>
-		</field>
-		<field position="4" name="chargeShipping" title="${uiLabelMap.ProductChargeShipping}">
-			<drop-down allow-empty="true">
-				<option key="Y" description="${uiLabelMap.CommonY}" />
-				<option key="N" description="${uiLabelMap.CommonN}" />
-			</drop-down>
-		</field>
-
-		<field position="1" name="returnable" title="${uiLabelMap.ProductReturnable}">
-			<drop-down allow-empty="true">
-				<option key="Y" description="${uiLabelMap.CommonY}" />
-				<option key="N" description="${uiLabelMap.CommonN}" />
-			</drop-down>
-		</field>
-		<field position="2" name="includeInPromotions"
-			title="${uiLabelMap.ProductIncludePromotions}">
-			<drop-down allow-empty="true">
-				<option key="Y" description="${uiLabelMap.CommonY}" />
-				<option key="N" description="${uiLabelMap.CommonN}" />
-			</drop-down>
-		</field>
-
-		<field position="3" name="taxable" title="${uiLabelMap.ProductTaxable}">
-			<drop-down allow-empty="true">
-				<option key="Y" description="${uiLabelMap.CommonY}" />
-				<option key="N" description="${uiLabelMap.CommonN}" />
-			</drop-down>
-		</field>
-		<field position="4" name="autoCreateKeywords"
-			title="${uiLabelMap.ProductAutoCreateKeywords}">
-			<drop-down allow-empty="true">
-				<option key="Y" description="${uiLabelMap.CommonY}" />
-				<option key="N" description="${uiLabelMap.CommonN}" />
-			</drop-down>
-		</field>
-
-		<field name="contentInfoText" title="${uiLabelMap.ProductContentInfoText}"
-			widget-style="tooltip">
-			<display description="${uiLabelMap.ProductNoteForContentOptions}"
-				also-hidden="false" />
-		</field>
-		These go on the Content tab-button page <field name="productName"><text 
-			size="30" maxlength="60"/></field> <field name="description"><textarea cols="60" 
-			rows="2"/></field> <field name="longDescription"><textarea cols="60" rows="3"/></field> 
-			<field name="smallImageUrl"><text size="60" maxlength="255"/></field> <field 
-			name="mediumImageUrl"><text size="60" maxlength="255"/></field> <field name="largeImageUrl"><text 
-			size="60" maxlength="255"/></field> <field name="detailImageUrl"><text size="60" 
-			maxlength="255"/></field> <field name="detailScreen"><text size="60" maxlength="250"/></field>
-		<field name="submitButton" title="${uiLabelMap.ProductUpdateProduct}"
-			use-when="product!=null" widget-style="smallSubmit">
-			<submit button-type="button" />
-		</field>
-		<field name="submitButton" title="${uiLabelMap.ProductCreateProduct}"
-			use-when="product==null" widget-style="smallSubmit">
-			<submit button-type="button" />
-		</field>
-
-		<field use-when="product!=null" position="1" name="lastUpdatedByText"
-			title="${uiLabelMap.ProductLastModifiedBy}:">
-			<display
-				description="[${product.lastModifiedByUserLogin}] ${uiLabelMap.CommonOn} ${product.lastModifiedDate}"
-				also-hidden="false" />
-		</field>
-		<field use-when="product!=null" position="2" name="createdByText"
-			title="${uiLabelMap.CommonCreatedBy}:">
-			<display
-				description="[${product.createdByUserLogin}] ${uiLabelMap.CommonOn} ${product.createdDate}"
-				also-hidden="false" />
-		</field>
-		<field name="orderDecimalQuantity">
-			<drop-down allow-empty="true">
-				<option key="Y" description="${uiLabelMap.CommonY}" />
-				<option key="N" description="${uiLabelMap.CommonN}" />
-			</drop-down>
-		</field>
-		<sort-order>
-			<field-group>
-				<sort-field name="productId" />
-				<sort-field name="productTypeId" />
-			</field-group>
-			<field-group title="${uiLabelMap.ProductWordingAndComment}"
-				collapsible="true">
-				<sort-field name="internalName" />
-				<sort-field name="brandName" />
-				<sort-field name="productName" />
-				<sort-field name="manufacturerPartyId" />
-				<sort-field name="comments" />
-			</field-group>
-			<field-group title="${uiLabelMap.ProductVirtualFieldGroup}" collapsible="true" 
-				initially-collapsed="true"> <sort-field name="isVirtual"/> <sort-field name="isVariant"/> 
-				<sort-field name="virtualVariantMethodEnum"/> </field-group>
-			<field-group title="${uiLabelMap.ProductPrimaryCategory}"
-				collapsible="true" initially-collapsed="true">
-				<sort-field name="primaryProductCategoryId" />
-			</field-group>
-			<field-group title="${uiLabelMap.CommonDates}"
-				collapsible="true" initially-collapsed="true">
-				<sort-field name="introductionDate" />
-				<sort-field name="releaseDate" />
-				<sort-field name="salesDiscontinuationDate" />
-				<sort-field name="supportDiscontinuationDate" />
-			</field-group>
-			<field-group title="${uiLabelMap.CommonInventory}"
-				collapsible="true" initially-collapsed="true">
-				<sort-field name="salesDiscWhenNotAvail" />
-				<sort-field name="requirementMethodEnumId" />
-				<sort-field name="inventoryItemTypeId" />
-				<sort-field name="requireInventory" />
-				<sort-field name="inventoryMessage" />
-				<sort-field name="lotIdFilledIn" />
-			</field-group>
-			<field-group title="${uiLabelMap.CommonRate}"
-				collapsible="true" initially-collapsed="true">
-				<sort-field name="ratingTypeEnum" />
-				<sort-field name="productRating" />
-			</field-group>
-			<field-group title="${uiLabelMap.CommonAmount}"
-				collapsible="true" initially-collapsed="true">
-				<sort-field name="requireAmount" />
-				<sort-field name="amountUomTypeId" />
-			</field-group>
-			<field-group title="${uiLabelMap.CommonMeasures}"
-				collapsible="true" initially-collapsed="true">
-				<sort-field name="productHeight" />
-				<sort-field name="heightUomId" />
-				<sort-field name="shippingHeight" />
-				<sort-field name="productWidth" />
-				<sort-field name="widthUomId" />
-				<sort-field name="shippingWidth" />
-				<sort-field name="productDepth" />
-				<sort-field name="depthUomId" />
-				<sort-field name="shippingDepth" />
-				<sort-field name="productDiameter" />
-				<sort-field name="diameterUomId" />
-				<sort-field name="productWeight" />
-				<sort-field name="weightUomId" />
-				<sort-field name="shippingWeight" />
-				<sort-field name="quantityIncluded" />
-				<sort-field name="quantityUomId" />
-				<sort-field name="quantityIncluded" />
-				<sort-field name="quantityUomId" />
-			</field-group>
-			<field-group title="${uiLabelMap.CommonShipping}"
-				collapsible="true" initially-collapsed="true">
-				<sort-field name="piecesIncluded" />
-				<sort-field name="inShippingBox" />
-				<sort-field name="defaultShipmentBoxTypeId" />
-				<sort-field name="chargeShipping" />
-			</field-group>
-			<field-group title="${uiLabelMap.CommonShoppingCart}"
-				collapsible="true" initially-collapsed="true">
-				<sort-field name="orderDecimalQuantity" />
-			</field-group>
-			<field-group title="${uiLabelMap.CommonMiscellaneous}"
-				collapsible="true" initially-collapsed="true">
-				<sort-field name="returnable" />
-				<sort-field name="includeInPromotions" />
-				<sort-field name="taxable" />
-				<sort-field name="autoCreateKeywords" />
-			</field-group>
-		</sort-order> -->
+		<!-- <field name="inventoryMessage" title="${uiLabelMap.ProductInventoryMessage}"> 
+			<text size="20" maxlength="255" /> </field> <field name="inventoryItemTypeId" 
+			title="${uiLabelMap.ProductInventoryItemTypeId}" use-when="product==null"> 
+			<drop-down allow-empty="false"> <entity-options entity-name="InventoryItemType" 
+			key-field-name="inventoryItemTypeId"> <entity-order-by field-name="description" 
+			/> </entity-options> </drop-down> </field> <field name="inventoryItemTypeId" 
+			title="${uiLabelMap.ProductInventoryItemTypeId}" use-when="product!=null"> 
+			<display-entity entity-name="InventoryItemType" /> </field> <field name="lotIdFilledIn" 
+			title="${uiLabelMap.ProductLotId}"> <drop-down allow-empty="false"> <option 
+			key="Allowed" description="${uiLabelMap.lotIdFilledInAllowed}" /> <option 
+			key="Mandatory" description="${uiLabelMap.lotIdFilledInMandatory}" /> <option 
+			key="Forbidden" description="${uiLabelMap.lotIdFilledInForbidden}" /> </drop-down> 
+			</field> <field position="1" name="ratingTypeEnum" title="${uiLabelMap.ProductRatingTypeEnum}"> 
+			<drop-down allow-empty="true"> <entity-options entity-name="Enumeration" 
+			key-field-name="enumId"> <entity-constraint name="enumTypeId" value="PROD_RATING_TYPE" 
+			/> <entity-order-by field-name="sequenceId" /> </entity-options> </drop-down> 
+			</field> <field position="2" title="${uiLabelMap.ProductRating}" name="productRating"> 
+			<text size="10" maxlength="20" /> </field> <field position="1" name="requireAmount" 
+			title="${uiLabelMap.ProductRequireAmount}" tooltip="${uiLabelMap.ProductRequireCustomerAmount}"> 
+			<drop-down allow-empty="true"> <option key="Y" description="${uiLabelMap.CommonY}" 
+			/> <option key="N" description="${uiLabelMap.CommonN}" /> </drop-down> </field> 
+			<field position="2" name="amountUomTypeId" title="${uiLabelMap.ProductAmountUomTypeId}"> 
+			<drop-down allow-empty="true"> <entity-options entity-name="UomType" key-field-name="uomTypeId"> 
+			<entity-order-by field-name="description" /> </entity-options> </drop-down> 
+			</field> <field position="1" title="${uiLabelMap.ProductProductHeight}" name="productHeight"> 
+			<text size="10" maxlength="20" /> </field> <field position="2" name="heightUomId" 
+			title="${uiLabelMap.ProductHeightUomId}"> <drop-down allow-empty="true"> 
+			<entity-options entity-name="Uom" key-field-name="uomId" description="${description} 
+			[${abbreviation}]"> <entity-constraint name="uomTypeId" value="LENGTH_MEASURE" 
+			/> <entity-order-by field-name="description" /> </entity-options> </drop-down> 
+			</field> <field position="3" title="${uiLabelMap.ProductShippingHeight}" 
+			name="shippingHeight"> <text size="10" maxlength="20" /> </field> <field 
+			position="1" title="${uiLabelMap.ProductProductWidth}" name="productWidth"> 
+			<text size="10" maxlength="20" /> </field> <field position="2" name="widthUomId" 
+			title="${uiLabelMap.ProductWidthUomId}"> <drop-down allow-empty="true"> <entity-options 
+			entity-name="Uom" key-field-name="uomId" description="${description} [${abbreviation}]"> 
+			<entity-constraint name="uomTypeId" value="LENGTH_MEASURE" /> <entity-order-by 
+			field-name="description" /> </entity-options> </drop-down> </field> <field 
+			position="3" title="${uiLabelMap.ProductShippingWidth}" name="shippingWidth"> 
+			<text size="10" maxlength="20" /> </field> <field position="1" title="${uiLabelMap.ProductProductDepth}" 
+			name="productDepth"> <text size="10" maxlength="20" /> </field> <field position="2" 
+			name="depthUomId" title="${uiLabelMap.ProductDepthUomId}"> <drop-down allow-empty="true"> 
+			<entity-options entity-name="Uom" key-field-name="uomId" description="${description} 
+			[${abbreviation}]"> <entity-constraint name="uomTypeId" value="LENGTH_MEASURE" 
+			/> <entity-order-by field-name="description" /> </entity-options> </drop-down> 
+			</field> <field position="3" title="${uiLabelMap.ProductShippingDepth}" name="shippingDepth"> 
+			<text size="10" maxlength="20" /> </field> <field position="1" title="${uiLabelMap.ProductProductDiameter}" 
+			name="productDiameter"> <text size="10" maxlength="20" /> </field> <field 
+			position="2" name="diameterUomId" title="${uiLabelMap.ProductDiameterUomId}"> 
+			<drop-down allow-empty="true"> <entity-options entity-name="Uom" key-field-name="uomId" 
+			description="${description} [${abbreviation}]"> <entity-constraint name="uomTypeId" 
+			value="LENGTH_MEASURE" /> <entity-order-by field-name="description" /> </entity-options> 
+			</drop-down> </field> <field position="3" name="shippingWeight" title="${uiLabelMap.ProductShippingWeight}"> 
+			<text size="10" maxlength="20" /> </field> <field position="1" name="quantityIncluded" 
+			title="${uiLabelMap.ProductQuantityIncluded}"> <text size="10" maxlength="20" 
+			/> </field> <field position="2" name="quantityUomId" title="${uiLabelMap.ProductQuantityUomId}"> 
+			<drop-down allow-empty="true"> <entity-options key-field-name="uomId" description="${description} 
+			- ${abbreviation}" entity-name="Uom"> <entity-constraint name="uomTypeId" 
+			operator="not-equals" value="CURRENCY_MEASURE" /> <entity-order-by field-name="description" 
+			/> </entity-options> </drop-down> </field> <field position="1" name="piecesIncluded" 
+			title="${uiLabelMap.ProductPiecesIncluded}"> <text size="10" maxlength="20" 
+			/> </field> <field position="2" name="inShippingBox" title="${uiLabelMap.ProductShippingBox}"> 
+			<drop-down> <option key="N" description="${uiLabelMap.CommonN}" /> <option 
+			key="Y" description="${uiLabelMap.CommonY}" /> </drop-down> </field> <field 
+			position="3" name="defaultShipmentBoxTypeId" title="${uiLabelMap.ProductDefaultShipmentBoxTypeId}"> 
+			<drop-down allow-empty="true"> <entity-options entity-name="ShipmentBoxType" 
+			key-field-name="shipmentBoxTypeId"> <entity-order-by field-name="description" 
+			/> </entity-options> </drop-down> </field> <field position="4" name="chargeShipping" 
+			title="${uiLabelMap.ProductChargeShipping}"> <drop-down allow-empty="true"> 
+			<option key="Y" description="${uiLabelMap.CommonY}" /> <option key="N" description="${uiLabelMap.CommonN}" 
+			/> </drop-down> </field> <field position="1" name="returnable" title="${uiLabelMap.ProductReturnable}"> 
+			<drop-down allow-empty="true"> <option key="Y" description="${uiLabelMap.CommonY}" 
+			/> <option key="N" description="${uiLabelMap.CommonN}" /> </drop-down> </field> 
+			<field position="2" name="includeInPromotions" title="${uiLabelMap.ProductIncludePromotions}"> 
+			<drop-down allow-empty="true"> <option key="Y" description="${uiLabelMap.CommonY}" 
+			/> <option key="N" description="${uiLabelMap.CommonN}" /> </drop-down> </field> 
+			<field position="3" name="taxable" title="${uiLabelMap.ProductTaxable}"> 
+			<drop-down allow-empty="true"> <option key="Y" description="${uiLabelMap.CommonY}" 
+			/> <option key="N" description="${uiLabelMap.CommonN}" /> </drop-down> </field> 
+			<field position="4" name="autoCreateKeywords" title="${uiLabelMap.ProductAutoCreateKeywords}"> 
+			<drop-down allow-empty="true"> <option key="Y" description="${uiLabelMap.CommonY}" 
+			/> <option key="N" description="${uiLabelMap.CommonN}" /> </drop-down> </field> 
+			<field name="contentInfoText" title="${uiLabelMap.ProductContentInfoText}" 
+			widget-style="tooltip"> <display description="${uiLabelMap.ProductNoteForContentOptions}" 
+			also-hidden="false" /> </field> These go on the Content tab-button page <field 
+			name="productName"><text size="30" maxlength="60"/></field> <field name="description"><textarea 
+			cols="60" rows="2"/></field> <field name="longDescription"><textarea cols="60" 
+			rows="3"/></field> <field name="smallImageUrl"><text size="60" maxlength="255"/></field> 
+			<field name="mediumImageUrl"><text size="60" maxlength="255"/></field> <field 
+			name="largeImageUrl"><text size="60" maxlength="255"/></field> <field name="detailImageUrl"><text 
+			size="60" maxlength="255"/></field> <field name="detailScreen"><text size="60" 
+			maxlength="250"/></field> <field name="submitButton" title="${uiLabelMap.ProductUpdateProduct}" 
+			use-when="product!=null" widget-style="smallSubmit"> <submit button-type="button" 
+			/> </field> <field name="submitButton" title="${uiLabelMap.ProductCreateProduct}" 
+			use-when="product==null" widget-style="smallSubmit"> <submit button-type="button" 
+			/> </field> <field use-when="product!=null" position="1" name="lastUpdatedByText" 
+			title="${uiLabelMap.ProductLastModifiedBy}:"> <display description="[${product.lastModifiedByUserLogin}] 
+			${uiLabelMap.CommonOn} ${product.lastModifiedDate}" also-hidden="false" /> 
+			</field> <field use-when="product!=null" position="2" name="createdByText" 
+			title="${uiLabelMap.CommonCreatedBy}:"> <display description="[${product.createdByUserLogin}] 
+			${uiLabelMap.CommonOn} ${product.createdDate}" also-hidden="false" /> </field> 
+			<field name="orderDecimalQuantity"> <drop-down allow-empty="true"> <option 
+			key="Y" description="${uiLabelMap.CommonY}" /> <option key="N" description="${uiLabelMap.CommonN}" 
+			/> </drop-down> </field> <sort-order> <field-group> <sort-field name="productId" 
+			/> <sort-field name="productTypeId" /> </field-group> <field-group title="${uiLabelMap.ProductWordingAndComment}" 
+			collapsible="true"> <sort-field name="internalName" /> <sort-field name="brandName" 
+			/> <sort-field name="productName" /> <sort-field name="manufacturerPartyId" 
+			/> <sort-field name="comments" /> </field-group> <field-group title="${uiLabelMap.ProductVirtualFieldGroup}" 
+			collapsible="true" initially-collapsed="true"> <sort-field name="isVirtual"/> 
+			<sort-field name="isVariant"/> <sort-field name="virtualVariantMethodEnum"/> 
+			</field-group> <field-group title="${uiLabelMap.ProductPrimaryCategory}" 
+			collapsible="true" initially-collapsed="true"> <sort-field name="primaryProductCategoryId" 
+			/> </field-group> <field-group title="${uiLabelMap.CommonDates}" collapsible="true" 
+			initially-collapsed="true"> <sort-field name="introductionDate" /> <sort-field 
+			name="releaseDate" /> <sort-field name="salesDiscontinuationDate" /> <sort-field 
+			name="supportDiscontinuationDate" /> </field-group> <field-group title="${uiLabelMap.CommonInventory}" 
+			collapsible="true" initially-collapsed="true"> <sort-field name="salesDiscWhenNotAvail" 
+			/> <sort-field name="requirementMethodEnumId" /> <sort-field name="inventoryItemTypeId" 
+			/> <sort-field name="requireInventory" /> <sort-field name="inventoryMessage" 
+			/> <sort-field name="lotIdFilledIn" /> </field-group> <field-group title="${uiLabelMap.CommonRate}" 
+			collapsible="true" initially-collapsed="true"> <sort-field name="ratingTypeEnum" 
+			/> <sort-field name="productRating" /> </field-group> <field-group title="${uiLabelMap.CommonAmount}" 
+			collapsible="true" initially-collapsed="true"> <sort-field name="requireAmount" 
+			/> <sort-field name="amountUomTypeId" /> </field-group> <field-group title="${uiLabelMap.CommonMeasures}" 
+			collapsible="true" initially-collapsed="true"> <sort-field name="productHeight" 
+			/> <sort-field name="heightUomId" /> <sort-field name="shippingHeight" /> 
+			<sort-field name="productWidth" /> <sort-field name="widthUomId" /> <sort-field 
+			name="shippingWidth" /> <sort-field name="productDepth" /> <sort-field name="depthUomId" 
+			/> <sort-field name="shippingDepth" /> <sort-field name="productDiameter" 
+			/> <sort-field name="diameterUomId" /> <sort-field name="productWeight" /> 
+			<sort-field name="weightUomId" /> <sort-field name="shippingWeight" /> <sort-field 
+			name="quantityIncluded" /> <sort-field name="quantityUomId" /> <sort-field 
+			name="quantityIncluded" /> <sort-field name="quantityUomId" /> </field-group> 
+			<field-group title="${uiLabelMap.CommonShipping}" collapsible="true" initially-collapsed="true"> 
+			<sort-field name="piecesIncluded" /> <sort-field name="inShippingBox" /> 
+			<sort-field name="defaultShipmentBoxTypeId" /> <sort-field name="chargeShipping" 
+			/> </field-group> <field-group title="${uiLabelMap.CommonShoppingCart}" collapsible="true" 
+			initially-collapsed="true"> <sort-field name="orderDecimalQuantity" /> </field-group> 
+			<field-group title="${uiLabelMap.CommonMiscellaneous}" collapsible="true" 
+			initially-collapsed="true"> <sort-field name="returnable" /> <sort-field 
+			name="includeInPromotions" /> <sort-field name="taxable" /> <sort-field name="autoCreateKeywords" 
+			/> </field-group> </sort-order> -->
 		<field position="1" name="productWeight" title="${uiLabelMap.ProductProductWeight}">
 			<text size="10" maxlength="20" />
 		</field>
@@ -645,6 +470,12 @@
 		<field name="productId">
 			<hidden />
 		</field>
+		<field name="taxInPrice">
+			<hidden />
+		</field>
+		<field name="taxPercentage">
+			<hidden />
+		</field>
 		<field name="productPriceTypeId">
 			<hidden value="DEFAULT_PRICE" />
 		</field>
@@ -671,12 +502,8 @@
 			</drop-down>
 		</field>
 		<field name="productStoreGroupId" title="${uiLabelMap.ProductProductStoreGroupId}">
-			<drop-down allow-empty="false" no-current-selected-key="_NA_">
-				<entity-options entity-name="ProductStoreGroup"
-					description="${productStoreGroupName}">
-					<entity-order-by field-name="productStoreGroupName" />
-				</entity-options>
-			</drop-down>
+			<hidden value="_NA_" />
+
 		</field>
 		<field name="termUomId">
 			<drop-down allow-empty="true">
@@ -691,19 +518,13 @@
 			</drop-down>
 		</field>
 		<field name="customPriceCalcService">
-			<drop-down allow-empty="true">
-				<entity-options entity-name="CustomMethod"
-					key-field-name="customMethodId">
-					<entity-constraint name="customMethodTypeId"
-						operator="equals" value="PRICE_FORMULA" />
-				</entity-options>
-			</drop-down>
+			<hidden />
 		</field>
 		<field name="taxAuthPartyId">
-			<lookup target-form-name="LookupPartyName" />
+			<hidden />
 		</field>
 		<field name="taxAuthGeoId">
-			<lookup target-form-name="LookupGeo" />
+			<hidden />
 		</field>
 		<field name="submitButton" title="${uiLabelMap.CommonCreate}"
 			widget-style="smallSubmit">
@@ -725,6 +546,12 @@
 		<field name="productPricePurposeId">
 			<hidden />
 		</field>
+		<field name="taxInPrice">
+			<hidden />
+		</field>
+		<field name="taxPercentage">
+			<hidden />
+		</field>
 		<!-- <field name="productPriceTypeId" title="${uiLabelMap.ProductPriceType}"><display-entity 
 			entity-name="ProductPriceType"/></field> <field name="productPricePurposeId" 
 			title="${uiLabelMap.CommonPurpose}"><display-entity entity-name="ProductPricePurpose"/></field> -->
@@ -733,8 +560,7 @@
 				description="${description} [${uomId}]" />
 		</field>
 		<field name="productStoreGroupId" title="${uiLabelMap.ProductProductStoreGroup}">
-			<display-entity entity-name="ProductStoreGroup"
-				description="${productStoreGroupName}" />
+			<hidden />
 		</field>
 		<field name="fromDate" title="${uiLabelMap.CommonFromDateTime}">
 			<display />
@@ -753,13 +579,7 @@
 			</drop-down>
 		</field>
 		<field name="customPriceCalcService">
-			<drop-down allow-empty="true">
-				<entity-options entity-name="CustomMethod"
-					key-field-name="customMethodId">
-					<entity-constraint name="customMethodTypeId"
-						operator="equals" value="PRICE_FORMULA" />
-				</entity-options>
-			</drop-down>
+			<hidden />
 		</field>
 
 		<field name="lastUpdatedByText" title="${uiLabelMap.ProductLastModifiedBy}:">
@@ -769,24 +589,17 @@
 		</field>
 
 		<field name="taxAuthPartyId">
-			<lookup target-form-name="LookupPartyName" />
+			<hidden />
 		</field>
 		<field name="taxAuthGeoId">
-			<lookup target-form-name="LookupGeo" />
+			<hidden />
 		</field>
 
 		<field name="submitButton" title="${uiLabelMap.CommonUpdate}">
 			<submit button-type="button" />
 		</field>
 
-		<field name="viewHistoryLink" title=" " widget-style="buttontext">
-			<hyperlink description="${uiLabelMap.ProductHistory}"
-				target="ProductPriceHistory" also-hidden="false">
-				<parameter param-name="productId" />
-				<parameter param-name="productPriceTypeId" />
-				<parameter param-name="fromDate" />
-			</hyperlink>
-		</field>
+
 
 		<field name="deleteLink" title=" " widget-style="buttontext">
 			<hyperlink description="${uiLabelMap.CommonDelete}" target="deleteProductPrice"
@@ -800,26 +613,35 @@
 			</hyperlink>
 		</field>
 	</form>
-	
+
 	<form name="OutstandingPurchaseOrders" type="list" list-name="purchaseOrders"
-        odd-row-style="alternate-row" default-table-style="basic-table">
-        <field name="orderDate"><display/></field>
-        <field name="orderId">
-            <hyperlink description="${orderId}" target="/vforder/control/orderview" also-hidden="false" target-type="inter-app">
-                <parameter param-name="orderId"/>
-            </hyperlink>
-        </field>
-        <field name="orderItemSeqId"><display/></field>
-        <field name="quantity"><display/></field>
-        <field name="quantityReceived"><display/></field>
-        <field name="quantityToReceive"><display/></field>
-        <!-- <field name="cancelQuantity"><display/></field>
-        <field name="itemStatusId"><display-entity entity-name="StatusItem" key-field-name="statusId"/></field>
-        <field name="estimatedShipDate"><display/></field>
-        <field name="estimatedDeliveryDate"><display/></field>
-        <field name="shipBeforeDate"><display/></field>
-        <field name="shipAfterDate"><display/></field> -->
-    </form>
+		odd-row-style="alternate-row" default-table-style="basic-table">
+		<field name="orderDate">
+			<display />
+		</field>
+		<field name="orderId">
+			<hyperlink description="${orderId}" target="/vforder/control/orderview"
+				also-hidden="false" target-type="inter-app">
+				<parameter param-name="orderId" />
+			</hyperlink>
+		</field>
+		<field name="orderItemSeqId">
+			<display />
+		</field>
+		<field name="quantity">
+			<display />
+		</field>
+		<field name="quantityReceived">
+			<display />
+		</field>
+		<field name="quantityToReceive">
+			<display />
+		</field>
+		<!-- <field name="cancelQuantity"><display/></field> <field name="itemStatusId"><display-entity 
+			entity-name="StatusItem" key-field-name="statusId"/></field> <field name="estimatedShipDate"><display/></field> 
+			<field name="estimatedDeliveryDate"><display/></field> <field name="shipBeforeDate"><display/></field> 
+			<field name="shipAfterDate"><display/></field> -->
+	</form>
 
 
 
