@@ -96,4 +96,12 @@
         <value xml:lang="en">Comments</value>
         <value xml:lang="hu">Megjegyzés</value>
     </property>
+    <property key="PageTitleEditProductPrices">
+        <value xml:lang="en">Product Prices</value>
+        <value xml:lang="hu">Termék Árak</value>
+    </property>
+    <property key="ProductCurrencyUomId">
+        <value xml:lang="en">Currency</value>
+        <value xml:lang="hu">Devisa</value>
+    </property>
 </resource>

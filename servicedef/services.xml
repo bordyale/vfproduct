@@ -1,19 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
-    <description>Vfproduct Services</description>
-    <vendor></vendor>
-    <version>1.0</version>
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>Vfproduct Services</description>
+	<vendor></vendor>
+	<version>1.0</version>
 
-    <service name="noSyntaxError" engine="interface">
-        <description>
+	<service name="noSyntaxError" engine="interface">
+		<description>
             Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
         </description>
-    </service> 
-    
-    <service name="vfproductGenericPermission" engine="simple"
-             location="component://vfproduct/minilang/VfproductPermissionServices.xml" invoke="vfproductGenericPermission">
-        <implements service="permissionInterface"/>
-    </service>
-    
+	</service>
+
+	<service name="vfCreateProductPrice" default-entity-name="ProductPrice"
+		engine="simple" location="component://vfproduct/minilang/VfproductServices.xml"
+		invoke="createProductPrice" auth="true">
+		<description>
+            Create a Product Price. 
+            
+            If taxAuthGeoId and taxAuthPartyId are passed in then the price will be considered a price 
+            with tax included (the priceWithoutTax, priceWithTax, taxAmount, and taxPercentage fields will also be populated).
+            
+            If the taxInPrice field is 'Y' then the price field will be left with the tax included (price will be equal to priceWithTax),
+            otherwise tax will be removed from the passed in price and the price field will be equal to the priceWithoutTax field.
+            
+            If taxAuthGeoId or taxAuthPartyId empty then the taxInPrice field will be ignored.
+        </description>
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true">
+			<exclude field-name="priceWithoutTax" />
+			<exclude field-name="priceWithTax" />
+			<exclude field-name="taxAmount" />
+			<exclude field-name="createdDate" />
+			<exclude field-name="createdByUserLogin" />
+			<exclude field-name="lastModifiedDate" />
+			<exclude field-name="lastModifiedByUserLogin" />
+		</auto-attributes>
+		<override name="fromDate" mode="INOUT" optional="true" />
+		<override name="price" optional="false" />
+	</service>
+
+	<service name="vfproductGenericPermission" engine="simple"
+		location="component://vfproduct/minilang/VfproductPermissionServices.xml"
+		invoke="vfproductGenericPermission">
+		<implements service="permissionInterface" />
+	</service>
+
 </services>
