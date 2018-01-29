@@ -36,9 +36,9 @@ under the License.
                 <td><b>${uiLabelMap.ProductMarketingPackageATP}</b></td>
                 <td><b>${uiLabelMap.ProductMarketingPackageQOH}</b></td>
                 </#if>
-                <td><b>${uiLabelMap.ProductIncomingShipments}</b></td>
+                <!--<td><b>${uiLabelMap.ProductIncomingShipments}</b></td>
                 <td><b>${uiLabelMap.ProductIncomingProductionRuns}</b></td>
-                <td><b>${uiLabelMap.ProductOutgoingProductionRuns}</b></td>
+                <td><b>${uiLabelMap.ProductOutgoingProductionRuns}</b></td>-->
             </tr>
             <#assign rowClass = "2">
             <#list quantitySummaryByFacility.values() as quantitySummary>
@@ -58,14 +58,14 @@ under the License.
                     <#assign outgoingQuantityTotal = manufacturingOutQuantitySummary.estimatedQuantityTotal!>
                     <tr valign="middle"<#if rowClass == "1"> class="alternate-row"</#if>>
                         <td>${(facility.facilityName)!} [${facilityId?default("[No Facility]")}]
-                        <a href="/facility/control/ReceiveInventory?facilityId=${facilityId}&amp;productId=${productId}&amp;externLoginKey=${externalLoginKey}" class="buttontext">${uiLabelMap.ProductInventoryReceive}</a></td>
+                        <!--<a href="/facility/control/ReceiveInventory?facilityId=${facilityId}&amp;productId=${productId}&amp;externLoginKey=${externalLoginKey}" class="buttontext">${uiLabelMap.ProductInventoryReceive}</a>--></td>
                         <td><#if totalAvailableToPromise??>${totalAvailableToPromise}<#else>&nbsp;</#if></td>
                         <td><#if totalQuantityOnHand??>${totalQuantityOnHand}<#else>&nbsp;</#if></td>
                         <#if isMarketingPackage == "true">
                         <td><#if mktgPkgATP??>${mktgPkgATP}<#else>&nbsp;</#if></td>
                         <td><#if mktgPkgQOH??>${mktgPkgQOH}<#else>&nbsp;</#if></td>
                         </#if>
-                        <td>
+                        <!--   <td>
                             <#if incomingShipmentAndItemList?has_content>
                                 <#list incomingShipmentAndItemList as incomingShipmentAndItem>
                                     <div>${incomingShipmentAndItem.shipmentId}:${incomingShipmentAndItem.shipmentItemSeqId}-${(incomingShipmentAndItem.estimatedArrivalDate.toString())!}-<#if incomingShipmentAndItem.quantity??>${incomingShipmentAndItem.quantity?string.number}<#else>[${uiLabelMap.ProductQuantityNotSet}]</#if></div>
@@ -74,7 +74,7 @@ under the License.
                                 <div>&nbsp;</div>
                             </#if>
                         </td>
-                        <td>
+                     <td>
                             <#if incomingProductionRunList?has_content>
                                 <#list incomingProductionRunList as incomingProductionRun>
                                     <div>${incomingProductionRun.workEffortId}-${(incomingProductionRun.estimatedCompletionDate.toString())!}-<#if incomingProductionRun.estimatedQuantity??>${incomingProductionRun.estimatedQuantity?string.number}<#else>[${uiLabelMap.ProductQuantityNotSet}]</#if></div>
@@ -93,7 +93,7 @@ under the License.
                             <#else>
                                 <div>&nbsp;</div>
                             </#if>
-                        </td>
+                        </td>-->
                     </tr>
 
                 </#if>

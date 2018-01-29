@@ -323,11 +323,11 @@
 					<decorator-section name="body">
 						<screenlet title="${uiLabelMap.PageTitleEditProductFacilities}">
 							<include-form name="UpdateProductFacilities"
-								location="component://product/widget/catalog/ProductForms.xml" />
+								location="component://vfproduct/widget/VfproductForms.xml" />
 						</screenlet>
 						<screenlet title="${uiLabelMap.ProductAddFacility}">
 							<include-form name="AddProductFacility"
-								location="component://product/widget/catalog/ProductForms.xml" />
+								location="component://vfproduct/widget/VfproductForms.xml" />
 						</screenlet>
 					</decorator-section>
 				</decorator-screen>
