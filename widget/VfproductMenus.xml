@@ -1,239 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<menus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ofbiz.apache.org/Widget-Menu" xsi:schemaLocation="http://ofbiz.apache.org/Widget-Menu http://ofbiz.apache.org/dtds/widget-menu.xsd">
-    <menu name="MainAppBar" title="${uiLabelMap.VfproductApplication}" extends="CommonAppBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
-        <menu-item name="main" title="${uiLabelMap.CommonMain}"><link target="main"/></menu-item>
-        <menu-item name="products" title="${uiLabelMap.ProductProducts}"><link target="FindProduct"/></menu-item>
-    </menu>
-    
-    
-    <menu name="ProductTabBar" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
-        <menu-item name="EditProduct" title="${uiLabelMap.ProductProduct}">
-            <link target="EditProduct">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductPrices" title="${uiLabelMap.ProductPrices}">
-            <link target="EditProductPrices">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-     <!--    <menu-item name="EditProductContent" title="${uiLabelMap.ProductContent}">
-            <link target="EditProductContent">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductGeos" title="${uiLabelMap.CommonGeos}">
-            <link target="EditProductGeos">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductGoodIdentifications" title="${uiLabelMap.CommonIds}">
-            <link target="EditProductGoodIdentifications">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductCategories" title="${uiLabelMap.ProductCategories}">
-            <link target="EditProductCategories">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductKeyword" title="${uiLabelMap.ProductKeywords}">
-            <link target="EditProductKeyword">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductAssoc" title="${uiLabelMap.ProductAssociations}">
-            <link target="EditProductAssoc">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="ViewProductManufacturing" title="${uiLabelMap.ProductManufacturing}">
-            <link target="ViewProductManufacturing">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item> -->
-        <!-- <menu-item name="EditProductCosts" title="${uiLabelMap.ProductCosts}">
-            <link target="EditProductCosts">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item> -->
-       <!--  <menu-item name="EditProductAttributes" title="${uiLabelMap.ProductAttributes}">
-            <link target="EditProductAttributes">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductFeatures" title="${uiLabelMap.ProductFeatures}">
-            <link target="EditProductFeatures">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item> -->
-         <menu-item name="EditProductFacilities" title="${uiLabelMap.ProductFacilities}">
-            <link target="EditProductFacilities">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item> 
-      <!--  <menu-item name="EditProductFacilityLocations" title="${uiLabelMap.ProductLocations}">
-            <link target="EditProductFacilityLocations">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>-->
-        <menu-item name="EditProductInventoryItems" title="${uiLabelMap.ProductInventory}">
-            <link target="EditProductInventoryItems">
-                <parameter param-name="productId"/>
-                <!-- <parameter param-name="showAllFacilities" value="Y"/> -->
-            </link>
-        </menu-item>
-        <menu-item name="EditSupplierProduct" title="${uiLabelMap.ProductSuppliers}">
-            <link target="EditProductSuppliers">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <!-- <menu-item name="ViewProductAgreements" title="${uiLabelMap.ProductAgreements}">
-            <link target="ViewProductAgreements">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductGlAccounts" title="${uiLabelMap.ProductAccounts}">
-            <link target="EditProductGlAccounts">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductPaymentMethodTypes" title="${uiLabelMap.ProductPaymentTypes}">
-            <link target="EditProductPaymentMethodTypes">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductMaints" title="${uiLabelMap.ProductMaintenance}">
-            <link target="EditProductMaints">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductMeters" title="${uiLabelMap.ProductMeters}">
-            <link target="EditProductMeters">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductSubscriptionResources" title="${uiLabelMap.ProductSubscriptionResources}">
-            <link target="EditProductSubscriptionResources">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductQuickAdmin" title="${uiLabelMap.ProductQuickAdmin}">
-            <link target="EditProductQuickAdmin">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditVendorProduct" title="${uiLabelMap.PartyVendor}">
-            <link target="EditVendorProduct">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="QuickAddVariants" title="${uiLabelMap.ProductVariants}">
-            <condition>
-                <if-compare field="product.isVirtual" operator="equals" value="Y"/>
-            </condition>
-            <link target="QuickAddVariants">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductConfigs" title="${uiLabelMap.ProductConfigs}">
-            <condition>
-                <or>
-                    <if-compare field="product.productTypeId" operator="equals" value="AGGREGATED"/>
-                    <if-compare field="product.productTypeId" operator="equals" value="AGGREGATED_SERVICE"/>
-                </or>
-            </condition>
-            <link target="EditProductConfigs">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductAssetUsage" title="${uiLabelMap.ProductAssetUsage}">
-            <condition>
-                <or>
-                    <if-compare field="product.productTypeId" operator="equals" value="ASSET_USAGE"/>
-                    <if-compare field="product.productTypeId" operator="equals" value="ASSET_USAGE_OUT_IN"/>
-                </or>
-            </condition>
-            <link target="EditProductAssetUsage">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductWorkEfforts" title="${uiLabelMap.WorkEffortWorkEffort}">
-            <link target="EditProductWorkEfforts">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductParties" title="${uiLabelMap.PartyParties}">
-            <link target="EditProductParties">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="viewProductOrder" title="${uiLabelMap.OrderOrders}">
-            <link target="viewProductOrder">
-                <parameter param-name="productId"/>
-                <parameter param-name="viewIndex" value="1"/>
-                <parameter param-name="viewSize" value="20"/>
-                <parameter param-name="showAll" value="Y"/>
-            </link>
-        </menu-item>
-        <menu-item name="EditProductCommunicationEvents" title="${uiLabelMap.PartyCommunications}">
-            <link target="EditProductCommunicationEvents">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="ViewProductGroupOrder" title="${uiLabelMap.ProductGroupOrder}">
-            <link target="ViewProductGroupOrder">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item> -->
-    </menu>
-    <menu name="ProductSubTabBar" menu-container-style="button-bar button-style-2" default-selected-style="selected">
-        <menu-item name="EditProduct" title="${uiLabelMap.ProductNewProduct}" widget-style="buttontext create">
-            <link target="EditProduct"/>
-        </menu-item>
-        <!-- <menu-item name="CreateVirtualWithVariantsForm" title="${uiLabelMap.ProductNewVirtualProduct}" widget-style="buttontext create">
-            <condition>
-                <not><if-empty field="product"/></not>
-            </condition>
-            <link target="CreateVirtualWithVariantsForm">
-                <parameter param-name="product_id" from-field="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="ProductProductPage" title="${uiLabelMap.ProductProductPage}">
-            <condition>
-                <not><if-empty field="product"/></not>
-            </condition>
-            <link target="/ecommerce/control/product" url-mode="inter-app">
-                <parameter param-name="product_id" from-field="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="ProductBarCode" title="${uiLabelMap.ProductBarcode}">
-            <condition>
-                <not><if-empty field="product"/></not>
-            </condition>
-            <link target="ProductBarCode.pdf" target-window="_blank">
-                <parameter param-name="productId"/>
-            </link>
-        </menu-item>
-        <menu-item name="ProductTags" title="${uiLabelMap.ProductTags}">
-            <link target="EditProductTag"/>
-        </menu-item>
-        <menu-item name="ExpandAll" title="${uiLabelMap.CommonExpandAll}" widget-style="buttontext expand-all">
-            <condition>
-                <and>
-                    <if-compare operator="equals" value="EditProduct" field="tabButtonItem"/>
-                </and>
-            </condition>
-            <link target="javascript:expandAll(true);" url-mode="plain"/>
-        </menu-item>
-        <menu-item name="CollapseAll" title="${uiLabelMap.CommonCollapseAll}" widget-style="buttontext collapse-all">
-            <condition>
-                <and>
-                    <if-compare operator="equals" value="EditProduct" field="tabButtonItem"/>
-                </and>
-            </condition>
-            <link target="javascript:expandAll(false);" url-mode="plain"/>
-        </menu-item> -->
-    </menu>
-    
+<menus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://ofbiz.apache.org/Widget-Menu"
+	xsi:schemaLocation="http://ofbiz.apache.org/Widget-Menu http://ofbiz.apache.org/dtds/widget-menu.xsd">
+	<menu name="MainAppBar" title="${uiLabelMap.VfproductApplication}"
+		extends="CommonAppBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+		<menu-item name="main" title="${uiLabelMap.CommonMain}">
+			<link target="main" />
+		</menu-item>
+		<menu-item name="products" title="${uiLabelMap.ProductProducts}">
+			<link target="FindProduct" />
+		</menu-item>
+		<menu-item name="bom" title="${uiLabelMap.ProductBom}">
+			<link target="FindBom" />
+		</menu-item>
+	</menu>
+
+
+	<menu name="ProductTabBar" extends="CommonTabBarMenu"
+		extends-resource="component://common/widget/CommonMenus.xml">
+		<menu-item name="EditProduct" title="${uiLabelMap.ProductProduct}">
+			<link target="EditProduct">
+				<parameter param-name="productId" />
+			</link>
+		</menu-item>
+		<menu-item name="EditProductPrices" title="${uiLabelMap.ProductPrices}">
+			<link target="EditProductPrices">
+				<parameter param-name="productId" />
+			</link>
+		</menu-item>
+		<!-- <menu-item name="EditProductContent" title="${uiLabelMap.ProductContent}"> 
+			<link target="EditProductContent"> <parameter param-name="productId"/> </link> 
+			</menu-item> <menu-item name="EditProductGeos" title="${uiLabelMap.CommonGeos}"> 
+			<link target="EditProductGeos"> <parameter param-name="productId"/> </link> 
+			</menu-item> <menu-item name="EditProductGoodIdentifications" title="${uiLabelMap.CommonIds}"> 
+			<link target="EditProductGoodIdentifications"> <parameter param-name="productId"/> 
+			</link> </menu-item> <menu-item name="EditProductCategories" title="${uiLabelMap.ProductCategories}"> 
+			<link target="EditProductCategories"> <parameter param-name="productId"/> 
+			</link> </menu-item> <menu-item name="EditProductKeyword" title="${uiLabelMap.ProductKeywords}"> 
+			<link target="EditProductKeyword"> <parameter param-name="productId"/> </link> 
+			</menu-item> <menu-item name="EditProductAssoc" title="${uiLabelMap.ProductAssociations}"> 
+			<link target="EditProductAssoc"> <parameter param-name="productId"/> </link> 
+			</menu-item> <menu-item name="ViewProductManufacturing" title="${uiLabelMap.ProductManufacturing}"> 
+			<link target="ViewProductManufacturing"> <parameter param-name="productId"/> 
+			</link> </menu-item> -->
+		<!-- <menu-item name="EditProductCosts" title="${uiLabelMap.ProductCosts}"> 
+			<link target="EditProductCosts"> <parameter param-name="productId"/> </link> 
+			</menu-item> -->
+		<!-- <menu-item name="EditProductAttributes" title="${uiLabelMap.ProductAttributes}"> 
+			<link target="EditProductAttributes"> <parameter param-name="productId"/> 
+			</link> </menu-item> <menu-item name="EditProductFeatures" title="${uiLabelMap.ProductFeatures}"> 
+			<link target="EditProductFeatures"> <parameter param-name="productId"/> </link> 
+			</menu-item> -->
+		<menu-item name="EditProductFacilities" title="${uiLabelMap.ProductFacilities}">
+			<link target="EditProductFacilities">
+				<parameter param-name="productId" />
+			</link>
+		</menu-item>
+		<!-- <menu-item name="EditProductFacilityLocations" title="${uiLabelMap.ProductLocations}"> 
+			<link target="EditProductFacilityLocations"> <parameter param-name="productId"/> 
+			</link> </menu-item> -->
+		<menu-item name="EditProductInventoryItems" title="${uiLabelMap.ProductInventory}">
+			<link target="EditProductInventoryItems">
+				<parameter param-name="productId" />
+				<!-- <parameter param-name="showAllFacilities" value="Y"/> -->
+			</link>
+		</menu-item>
+		<menu-item name="EditSupplierProduct" title="${uiLabelMap.ProductSuppliers}">
+			<link target="EditProductSuppliers">
+				<parameter param-name="productId" />
+			</link>
+		</menu-item>
+		<!-- <menu-item name="ViewProductAgreements" title="${uiLabelMap.ProductAgreements}"> 
+			<link target="ViewProductAgreements"> <parameter param-name="productId"/> 
+			</link> </menu-item> <menu-item name="EditProductGlAccounts" title="${uiLabelMap.ProductAccounts}"> 
+			<link target="EditProductGlAccounts"> <parameter param-name="productId"/> 
+			</link> </menu-item> <menu-item name="EditProductPaymentMethodTypes" title="${uiLabelMap.ProductPaymentTypes}"> 
+			<link target="EditProductPaymentMethodTypes"> <parameter param-name="productId"/> 
+			</link> </menu-item> <menu-item name="EditProductMaints" title="${uiLabelMap.ProductMaintenance}"> 
+			<link target="EditProductMaints"> <parameter param-name="productId"/> </link> 
+			</menu-item> <menu-item name="EditProductMeters" title="${uiLabelMap.ProductMeters}"> 
+			<link target="EditProductMeters"> <parameter param-name="productId"/> </link> 
+			</menu-item> <menu-item name="EditProductSubscriptionResources" title="${uiLabelMap.ProductSubscriptionResources}"> 
+			<link target="EditProductSubscriptionResources"> <parameter param-name="productId"/> 
+			</link> </menu-item> <menu-item name="EditProductQuickAdmin" title="${uiLabelMap.ProductQuickAdmin}"> 
+			<link target="EditProductQuickAdmin"> <parameter param-name="productId"/> 
+			</link> </menu-item> <menu-item name="EditVendorProduct" title="${uiLabelMap.PartyVendor}"> 
+			<link target="EditVendorProduct"> <parameter param-name="productId"/> </link> 
+			</menu-item> <menu-item name="QuickAddVariants" title="${uiLabelMap.ProductVariants}"> 
+			<condition> <if-compare field="product.isVirtual" operator="equals" value="Y"/> 
+			</condition> <link target="QuickAddVariants"> <parameter param-name="productId"/> 
+			</link> </menu-item> <menu-item name="EditProductConfigs" title="${uiLabelMap.ProductConfigs}"> 
+			<condition> <or> <if-compare field="product.productTypeId" operator="equals" 
+			value="AGGREGATED"/> <if-compare field="product.productTypeId" operator="equals" 
+			value="AGGREGATED_SERVICE"/> </or> </condition> <link target="EditProductConfigs"> 
+			<parameter param-name="productId"/> </link> </menu-item> <menu-item name="EditProductAssetUsage" 
+			title="${uiLabelMap.ProductAssetUsage}"> <condition> <or> <if-compare field="product.productTypeId" 
+			operator="equals" value="ASSET_USAGE"/> <if-compare field="product.productTypeId" 
+			operator="equals" value="ASSET_USAGE_OUT_IN"/> </or> </condition> <link target="EditProductAssetUsage"> 
+			<parameter param-name="productId"/> </link> </menu-item> <menu-item name="EditProductWorkEfforts" 
+			title="${uiLabelMap.WorkEffortWorkEffort}"> <link target="EditProductWorkEfforts"> 
+			<parameter param-name="productId"/> </link> </menu-item> <menu-item name="EditProductParties" 
+			title="${uiLabelMap.PartyParties}"> <link target="EditProductParties"> <parameter 
+			param-name="productId"/> </link> </menu-item> <menu-item name="viewProductOrder" 
+			title="${uiLabelMap.OrderOrders}"> <link target="viewProductOrder"> <parameter 
+			param-name="productId"/> <parameter param-name="viewIndex" value="1"/> <parameter 
+			param-name="viewSize" value="20"/> <parameter param-name="showAll" value="Y"/> 
+			</link> </menu-item> <menu-item name="EditProductCommunicationEvents" title="${uiLabelMap.PartyCommunications}"> 
+			<link target="EditProductCommunicationEvents"> <parameter param-name="productId"/> 
+			</link> </menu-item> <menu-item name="ViewProductGroupOrder" title="${uiLabelMap.ProductGroupOrder}"> 
+			<link target="ViewProductGroupOrder"> <parameter param-name="productId"/> 
+			</link> </menu-item> -->
+	</menu>
+	<menu name="ProductSubTabBar" menu-container-style="button-bar button-style-2"
+		default-selected-style="selected">
+		<menu-item name="EditProduct" title="${uiLabelMap.ProductNewProduct}"
+			widget-style="buttontext create">
+			<link target="EditProduct" />
+		</menu-item>
+		<!-- <menu-item name="CreateVirtualWithVariantsForm" title="${uiLabelMap.ProductNewVirtualProduct}" 
+			widget-style="buttontext create"> <condition> <not><if-empty field="product"/></not> 
+			</condition> <link target="CreateVirtualWithVariantsForm"> <parameter param-name="product_id" 
+			from-field="productId"/> </link> </menu-item> <menu-item name="ProductProductPage" 
+			title="${uiLabelMap.ProductProductPage}"> <condition> <not><if-empty field="product"/></not> 
+			</condition> <link target="/ecommerce/control/product" url-mode="inter-app"> 
+			<parameter param-name="product_id" from-field="productId"/> </link> </menu-item> 
+			<menu-item name="ProductBarCode" title="${uiLabelMap.ProductBarcode}"> <condition> 
+			<not><if-empty field="product"/></not> </condition> <link target="ProductBarCode.pdf" 
+			target-window="_blank"> <parameter param-name="productId"/> </link> </menu-item> 
+			<menu-item name="ProductTags" title="${uiLabelMap.ProductTags}"> <link target="EditProductTag"/> 
+			</menu-item> <menu-item name="ExpandAll" title="${uiLabelMap.CommonExpandAll}" 
+			widget-style="buttontext expand-all"> <condition> <and> <if-compare operator="equals" 
+			value="EditProduct" field="tabButtonItem"/> </and> </condition> <link target="javascript:expandAll(true);" 
+			url-mode="plain"/> </menu-item> <menu-item name="CollapseAll" title="${uiLabelMap.CommonCollapseAll}" 
+			widget-style="buttontext collapse-all"> <condition> <and> <if-compare operator="equals" 
+			value="EditProduct" field="tabButtonItem"/> </and> </condition> <link target="javascript:expandAll(false);" 
+			url-mode="plain"/> </menu-item> -->
+	</menu>
+	<menu name="BomTabBar" extends="CommonTabBarMenu"
+		extends-resource="component://common/widget/CommonMenus.xml">
+		<menu-item name="findBom" title="${uiLabelMap.CommonFind}">
+			<link target="FindBom" />
+		</menu-item>
+		<!-- <menu-item name="bomSimulation" title="${uiLabelMap.ManufacturingBomSimulation}"> 
+			<link target="BomSimulation"/> </menu-item> -->
+		<menu-item name="EditProductBom" title="${uiLabelMap.ManufacturingEditProductBom}">
+			<link target="EditProductBom" />
+		</menu-item>
+		<!-- <menu-item name="productManufacturingRules" title="${uiLabelMap.ManufacturingManufacturingRules}"> 
+			<link target="EditProductManufacturingRules"/> </menu-item> -->
+	</menu>
+
 </menus>

@@ -13,8 +13,15 @@
 				<decorator-screen name="VfproductCommonDecorator"
 					location="${parameters.mainDecoratorLocation}">
 					<decorator-section name="body">
+						<section>
+							<widgets>
+								<include-menu name="ProductSubTabBar"
+									location="component://vfproduct/widget/VfproductMenus.xml" />
+							</widgets>
+						</section>
 					</decorator-section>
 				</decorator-screen>
+
 			</widgets>
 		</section>
 	</screen>
@@ -63,7 +70,7 @@
 									<widgets>
 										<include-menu name="ProductTabBar"
 											location="component://vfproduct/widget/VfproductMenus.xml" />
-										<include-menu name="ProductSubTabBar" location="component://vfproduct/widget/VfproductMenus.xml"/>
+										<!-- <include-menu name="ProductSubTabBar" location="component://vfproduct/widget/VfproductMenus.xml"/> -->
 										<image src="${product.smallImageUrl}" url-mode="content"
 											alt="${product.internalName}" style="cssImgSmall" />
 										<label style="h1">${uiLabelMap[labelTitleProperty]}

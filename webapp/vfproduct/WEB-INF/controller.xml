@@ -142,8 +142,15 @@
 		<response name="success" type="view" value="EditProductFacilities" />
 		<response name="error" type="view" value="EditProductFacilities" />
 	</request-map>
-
-
+	<!-- ================ BOM ================= -->
+	<request-map uri="FindBom">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="FindBom" />
+	</request-map>
+	<request-map uri="EditProductBom">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="EditProductBom" />
+	</request-map>
 
 
 
@@ -162,4 +169,11 @@
 		page="component://vfproduct/widget/VfproductScreens.xml#EditProductInventoryItems" />
 	<view-map name="EditProductFacilities" type="screen"
 		page="component://vfproduct/widget/VfproductScreens.xml#EditProductFacilities" />
+	<!-- BOM view mappings -->
+	<view-map name="EditProductBom"
+		page="component://vfproduct/widget/VfBomScreens.xml#EditProductBom"
+		type="screen" />
+
+	<view-map name="FindBom"
+		page="component://vfproduct/widget/VfBomScreens.xml#FindBom" type="screen" />
 </site-conf>

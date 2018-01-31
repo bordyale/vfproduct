@@ -124,4 +124,24 @@
         <value xml:lang="en">Product Orders</value>
         <value xml:lang="hu">Termék Megrendelések</value>
     </property>
+    <property key="ProductBom">
+        <value xml:lang="en">Bills of Material</value>
+        <value xml:lang="hu">Termék Összetevők </value>
+    </property>
+    <property key="CommonFind">
+        <value xml:lang="en">Find!</value>
+        <value xml:lang="hu">Keresés </value>
+    </property>
+    <property key="ManufacturingEditProductBom">
+        <value xml:lang="en">Edit Bom</value>
+        <value xml:lang="hu">Összetevők Szerkeztés</value>
+    </property>
+    <property key="ManufacturingCreateBom">
+        <value xml:lang="en">Create Bom</value>
+        <value xml:lang="hu">Új Bom</value>
+    </property>
+    <property key="ProductProductIdTo">
+        <value xml:lang="en">Product Id To</value>
+        <value xml:lang="hu">Termék Azonosító Összetevő</value>
+    </property>
 </resource>
