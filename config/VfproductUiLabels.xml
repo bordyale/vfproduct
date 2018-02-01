@@ -144,4 +144,20 @@
         <value xml:lang="en">Product Id To</value>
         <value xml:lang="hu">Termék Azonosító Összetevő</value>
     </property>
+    <property key="ManufacturingProductIdTo">
+        <value xml:lang="en">Product Id To</value>
+        <value xml:lang="hu">Termék Azonosító Összetevő</value>
+    </property>
+    <property key="CommonFromDate">
+        <value xml:lang="en">From Date</value>
+        <value xml:lang="hu">Tól</value>
+    </property>
+    <property key="CommonThruDate">
+        <value xml:lang="en">To Date</value>
+        <value xml:lang="hu">Ig</value>
+    </property>
+    <property key="ManufacturingQuantity">
+        <value xml:lang="en">Quantity</value>
+        <value xml:lang="hu">Mennyiség</value>
+    </property>
 </resource>

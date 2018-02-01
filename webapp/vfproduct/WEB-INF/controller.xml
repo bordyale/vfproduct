@@ -151,6 +151,16 @@
 		<security https="true" auth="true" />
 		<response name="success" type="view" value="EditProductBom" />
 	</request-map>
+	<request-map uri="LookupProduct">
+		<security auth="true" https="true" />
+		<response name="success" type="view" value="LookupProduct" />
+	</request-map>
+	<request-map uri="UpdateProductBom">
+        <security https="true" auth="true"/>
+        <event type="simple" path="component://manufacturing/minilang/bom/BomSimpleMethods.xml" invoke="eventEditBOM"/>
+        <response name="success" type="view" value="EditProductBom"/>
+        <response name="error" type="view" value="EditProductBom"/>
+    </request-map>
 
 
 
@@ -173,7 +183,11 @@
 	<view-map name="EditProductBom"
 		page="component://vfproduct/widget/VfBomScreens.xml#EditProductBom"
 		type="screen" />
-
 	<view-map name="FindBom"
 		page="component://vfproduct/widget/VfBomScreens.xml#FindBom" type="screen" />
+	<!-- Lookup view mappings -->
+
+	<view-map name="LookupProduct"
+		page="component://vforder/widget/LookupScreens.xml#LookupProduct"
+		type="screen" />
 </site-conf>
