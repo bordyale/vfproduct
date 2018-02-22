@@ -85,8 +85,8 @@
         <value xml:lang="hu">Termék Beszállítók</value>
     </property>
     <property key="ProductCreateProduct">
-        <value xml:lang="en">Product Suppliers</value>
-        <value xml:lang="hu">Termék Beszállítók</value>
+        <value xml:lang="en">Create Product</value>
+        <value xml:lang="hu">Termék Létrehozás</value>
     </property>
     <property key="ProductInventory">
         <value xml:lang="en">Product Inventory</value>
