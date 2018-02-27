@@ -696,13 +696,10 @@
 		<field name="productIdTo" title="${uiLabelMap.ProductProductIdTo}">
 			<lookup target-form-name="LookupProduct" />
 		</field>
-		<!-- <field name="productAssocTypeId" title="${uiLabelMap.ManufacturingBomType}">
-			<drop-down allow-empty="true">
-				<option key="MANUF_COMPONENT" description="${uiLabelMap.ManufacturingBillOfMaterials}" />
-				<option key="ENGINEER_COMPONENT"
-					description="${uiLabelMap.ManufacturingEngineeringBillOfMaterials}" />
-			</drop-down>
-		</field> -->
+		<!-- <field name="productAssocTypeId" title="${uiLabelMap.ManufacturingBomType}"> 
+			<drop-down allow-empty="true"> <option key="MANUF_COMPONENT" description="${uiLabelMap.ManufacturingBillOfMaterials}" 
+			/> <option key="ENGINEER_COMPONENT" description="${uiLabelMap.ManufacturingEngineeringBillOfMaterials}" 
+			/> </drop-down> </field> -->
 		<field name="noConditionFind">
 			<hidden value="Y" /><!-- if this isn't there then with all fields 
 				empty no query will be done -->
@@ -727,10 +724,9 @@
 		<field name="productIdTo" title="${uiLabelMap.ProductProductIdTo}">
 			<display />
 		</field>
-		<!-- <field name="productAssocTypeId" title="${uiLabelMap.ManufacturingBomType}">
-			<display-entity entity-name="ProductAssocType"
-				key-field-name="productAssocTypeId" />
-		</field> -->
+		<!-- <field name="productAssocTypeId" title="${uiLabelMap.ManufacturingBomType}"> 
+			<display-entity entity-name="ProductAssocType" key-field-name="productAssocTypeId" 
+			/> </field> -->
 	</form>
 
 
