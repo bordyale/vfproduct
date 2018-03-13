@@ -306,6 +306,25 @@
 		<field name="productId">
 			<hidden value="${productId}" />
 		</field>
+		<field name="supplierProductId">
+			<hidden value="000" />
+		</field>
+		<field name="lastPrice">
+			<hidden value="000" />
+		</field>
+		<field name="shippingPrice">
+			<hidden/>
+		</field>
+		<field name="supplierProductName">
+			<hidden/>
+		</field>
+		<field name="agreementItemSeqId">
+			<hidden/>
+		</field>
+		<field name="agreementId">
+			<hidden/>
+		</field>
+		
 		<field name="partyId" title="${uiLabelMap.ProductSupplier}"
 			use-when="supplierProduct!=null">
 			<display-entity entity-name="PartyNameView"
@@ -352,20 +371,10 @@
 			<display-entity entity-name="Uom" key-field-name="uomId" />
 		</field>
 		<field name="supplierPrefOrderId">
-			<drop-down allow-empty="true" no-current-selected-key="10_MAIN_SUPPL">
-				<entity-options entity-name="SupplierPrefOrder"
-					key-field-name="supplierPrefOrderId">
-					<entity-order-by field-name="supplierPrefOrderId" />
-				</entity-options>
-			</drop-down>
+			<hidden/>
 		</field>
 		<field name="supplierRatingTypeId">
-			<drop-down allow-empty="true">
-				<entity-options entity-name="SupplierRatingType"
-					key-field-name="supplierRatingTypeId">
-					<entity-order-by field-name="description" />
-				</entity-options>
-			</drop-down>
+			<hidden/>
 		</field>
 		<field name="quantityUomId" title="${uiLabelMap.ProductQuantityUomId}">
 			<drop-down allow-empty="true">
@@ -380,10 +389,7 @@
 			</drop-down>
 		</field>
 		<field name="canDropShip" title="${uiLabelMap.ProductSupplierCanDropShip}">
-			<drop-down allow-empty="false" no-current-selected-key="N">
-				<option key="Y" description="${uiLabelMap.CommonY}" />
-				<option key="N" description="${uiLabelMap.CommonN}" />
-			</drop-down>
+			<hidden/>
 		</field>
 		<field use-when="supplierProduct == null" name="submitButton"
 			title="${uiLabelMap.CommonCreate}">
