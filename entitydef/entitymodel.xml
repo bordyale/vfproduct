@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
-    <!-- ========================================================= -->
-    <!-- ======================== Defaults ======================= -->
-    <!-- ========================================================= -->
-    <title>Entity of Vfproduct Component</title>
-    <description>None</description>
-    <copyright></copyright>
-    <version></version>
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of Vfproduct Component</title>
+	<description>None</description>
+	<copyright></copyright>
+	<version></version>
+
+
+	<view-entity entity-name="VfProductAndAssoc" package-name="org.apache.ofbiz.order.order"
+		never-cache="true" title="Order Items and ShippingItem View Entity">
+		<member-entity entity-alias="PA" entity-name="ProductAndAssoc" />
+		<member-entity entity-alias="PR" entity-name="Product" />
+		<alias-all entity-alias="PA" prefix="pa"/>
+		<alias-all entity-alias="PR" prefix="pr"/>
+		<view-link entity-alias="PA" rel-entity-alias="PR">
+			<key-map field-name="productIdTo" rel-field-name="productId" />
+		</view-link>
+	</view-entity>
 
 </entitymodel>

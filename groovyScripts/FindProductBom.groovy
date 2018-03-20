@@ -22,26 +22,26 @@ import org.apache.ofbiz.entity.condition.*
 
 condList = []
 if (parameters.productId) {
-    cond = EntityCondition.makeCondition("productId", EntityOperator.EQUALS, parameters.productId)
+    cond = EntityCondition.makeCondition("paProductId", EntityOperator.EQUALS, parameters.productId)
     condList.add(cond)
 }
 if (parameters.productIdTo) {
-    cond = EntityCondition.makeCondition("productIdTo", EntityOperator.EQUALS, parameters.productIdTo)
+    cond = EntityCondition.makeCondition("paProductIdTo", EntityOperator.EQUALS, parameters.productIdTo)
     condList.add(cond)
 }
 if (parameters.productAssocTypeId) {
-    cond = EntityCondition.makeCondition("productAssocTypeId", EntityOperator.EQUALS, parameters.productAssocTypeId)
+    cond = EntityCondition.makeCondition("paProductAssocTypeId", EntityOperator.EQUALS, parameters.productAssocTypeId)
     condList.add(cond)
 } else {
-    cond = EntityCondition.makeCondition([EntityCondition.makeCondition("productAssocTypeId", EntityOperator.EQUALS, "ENGINEER_COMPONENT"),
-                                          EntityCondition.makeCondition("productAssocTypeId", EntityOperator.EQUALS, "MANUF_COMPONENT")
+    cond = EntityCondition.makeCondition([EntityCondition.makeCondition("paProductAssocTypeId", EntityOperator.EQUALS, "ENGINEER_COMPONENT"),
+                                          EntityCondition.makeCondition("paProductAssocTypeId", EntityOperator.EQUALS, "MANUF_COMPONENT")
                                           ], EntityOperator.OR)
     condList.add(cond)
 }
-bomListIterator = select("productId","productIdTo", "internalName", "productAssocTypeId")
-                    .from("ProductAndAssoc")
+bomListIterator = select("paProductId","paProductIdTo", "paInternalName","prInternalName", "paProductAssocTypeId","paQuantity")
+                    .from("VfProductAndAssoc")
                     .where(condList)
-                    .orderBy("productId", "productAssocTypeId")
+                    .orderBy("paProductId", "paProductAssocTypeId")
                     .cursorScrollInsensitive()
                     .cache(true)
                     .queryIterator()

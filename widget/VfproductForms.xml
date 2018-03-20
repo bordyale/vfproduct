@@ -717,17 +717,23 @@
 	<form name="ListBom" type="list" list-name="ListProductBom"
 		odd-row-style="alternate-row" default-table-style="basic-table hover-bar"
 		paginate-target="FindBom">
-		<field name="productId" title="${uiLabelMap.ProductProductId}"
+		<field name="paProductId" title="${uiLabelMap.ProductProductId}"
 			use-when="">
-			<hyperlink description="${productId}" target="EditProductBom">
-				<parameter param-name="productId" />
-				<parameter param-name="productAssocTypeId" />
+			<hyperlink description="${paProductId}" target="EditProductBom">
+				<parameter param-name="paProductId" />
+				<parameter param-name="paProductAssocTypeId" />
 			</hyperlink>
 		</field>
-		<field name="internalName" title="${uiLabelMap.ProductProductName}">
+		<field name="paInternalName" title="${uiLabelMap.ProductProductName}">
 			<display />
 		</field>
-		<field name="productIdTo" title="${uiLabelMap.ProductProductIdTo}">
+		<field name="paProductIdTo" title="${uiLabelMap.ProductProductIdTo}">
+			<display />
+		</field>
+		<field name="prInternalName" title="${uiLabelMap.ProductInternalToName}">
+			<display />
+		</field>
+		<field name="paQuantity" title="${uiLabelMap.Quantity}">
 			<display />
 		</field>
 		<!-- <field name="productAssocTypeId" title="${uiLabelMap.ManufacturingBomType}"> 
