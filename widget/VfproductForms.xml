@@ -9,6 +9,7 @@
 		default-table-style="basic-table hover-bar" header-row-style="header-row-2"
 		override-list-size="true">
 		<actions>
+			<set field="requestParameters.noConditionFind" value="Y" />
 			<set field="entityName" value="Product" />
 			<service service-name="performFindList" result-map="result"
 				result-map-list="list">
@@ -313,18 +314,18 @@
 			<hidden value="000" />
 		</field>
 		<field name="shippingPrice">
-			<hidden/>
+			<hidden />
 		</field>
 		<field name="supplierProductName">
-			<hidden/>
+			<hidden />
 		</field>
 		<field name="agreementItemSeqId">
-			<hidden/>
+			<hidden />
 		</field>
 		<field name="agreementId">
-			<hidden/>
+			<hidden />
 		</field>
-		
+
 		<field name="partyId" title="${uiLabelMap.ProductSupplier}"
 			use-when="supplierProduct!=null">
 			<display-entity entity-name="PartyNameView"
@@ -371,10 +372,10 @@
 			<display-entity entity-name="Uom" key-field-name="uomId" />
 		</field>
 		<field name="supplierPrefOrderId">
-			<hidden value="10_MAIN_SUPPL"/>
+			<hidden value="10_MAIN_SUPPL" />
 		</field>
 		<field name="supplierRatingTypeId">
-			<hidden/>
+			<hidden />
 		</field>
 		<field name="quantityUomId" title="${uiLabelMap.ProductQuantityUomId}">
 			<drop-down allow-empty="true">
@@ -389,7 +390,7 @@
 			</drop-down>
 		</field>
 		<field name="canDropShip" title="${uiLabelMap.ProductSupplierCanDropShip}">
-			<hidden/>
+			<hidden />
 		</field>
 		<field use-when="supplierProduct == null" name="submitButton"
 			title="${uiLabelMap.CommonCreate}">
@@ -720,8 +721,8 @@
 		<field name="paProductId" title="${uiLabelMap.ProductProductId}"
 			use-when="">
 			<hyperlink description="${paProductId}" target="EditProductBom">
-				<parameter param-name="paProductId" />
-				<parameter param-name="paProductAssocTypeId" />
+				<parameter param-name="productId" value="${paProductId}" />
+				<parameter param-name="productAssocTypeId" value="${paProductAssocTypeId}" />
 			</hyperlink>
 		</field>
 		<field name="paInternalName" title="${uiLabelMap.ProductProductName}">
@@ -739,6 +740,68 @@
 		<!-- <field name="productAssocTypeId" title="${uiLabelMap.ManufacturingBomType}"> 
 			<display-entity entity-name="ProductAssocType" key-field-name="productAssocTypeId" 
 			/> </field> -->
+	</form>
+
+
+	<form name="EditProduction" type="single" target="createProduction"
+		title="" default-map-name="example" default-entity-name="WorkEffortAndInventoryAssign">
+		<field name="productId" title="${uiLabelMap.ProductProductId}">
+			<lookup target-form-name="LookupProduct" />
+		</field>
+		<field name="quantity" title="${uiLabelMap.ManufactoringQuantity}">
+			<text default-value="0" size="5" />
+		</field>
+
+		<field name="submitButton" title="${uiLabelMap.CommonCreate}">
+			<submit button-type="button" />
+		</field>
+
+	</form>
+
+	<form name="FindProduction" type="single" target="FindProduction"
+		default-entity-name="Example">
+		<field name="noConditionFind">
+			<hidden value="Y" /><!-- if this isn't there then with all fields 
+				empty no query will be done -->
+		</field>
+		<field name="productId" title="${uiLabelMap.ProductProductId}">
+			<lookup target-form-name="LookupProduct" />
+		</field>
+
+		<field name="searchButton">
+			<submit />
+		</field>
+
+	</form>
+	
+	<form name="ListProduction" list-name="list" target="" title=""
+		type="list" paginate-target="FindProduction" odd-row-style="alternate-row"
+		default-table-style="basic-table hover-bar" header-row-style="header-row-2"
+		override-list-size="true">
+		<actions>
+			<set field="requestParameters.noConditionFind" value="Y" />
+			<set field="entityName" value="WorkEffortAndInventoryAssign" />
+			<service service-name="performFindList" result-map="result"
+				result-map-list="list">
+				<field-map field-name="inputFields" from-field="requestParameters" />
+				<field-map field-name="entityName" from-field="entityName" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="productId" sort-field="true">
+			<display />
+		</field>
+		<field name="workEffortId" sort-field="true">
+			<display />
+		</field>
+		<field name="inventoryItemId" sort-field="true">
+			<display />
+		</field>
+		<!-- <field name="brandName" sort-field="true"><display/></field> <field 
+			name="productName" sort-field="true"><display/></field> <field name="description" 
+			sort-field="true"><display/></field> -->
 	</form>
 
 

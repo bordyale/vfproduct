@@ -13,6 +13,9 @@
 		<menu-item name="bom" title="${uiLabelMap.ProductBom}">
 			<link target="FindBom" />
 		</menu-item>
+		<menu-item name="production" title="${uiLabelMap.ProductProduction}">
+			<link target="FindProduction" />
+		</menu-item>
 	</menu>
 
 

@@ -160,4 +160,8 @@
         <value xml:lang="en">Quantity</value>
         <value xml:lang="hu">Mennyiség</value>
     </property>
+    <property key="ProductProduction">
+        <value xml:lang="en">Manifacturing</value>
+        <value xml:lang="hu">Termelés</value>
+    </property>
 </resource>

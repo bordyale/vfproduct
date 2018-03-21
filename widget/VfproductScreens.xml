@@ -13,12 +13,8 @@
 				<decorator-screen name="VfproductCommonDecorator"
 					location="${parameters.mainDecoratorLocation}">
 					<decorator-section name="body">
-						<section>
-							<widgets>
-								<include-menu name="ProductSubTabBar"
-									location="component://vfproduct/widget/VfproductMenus.xml" />
-							</widgets>
-						</section>
+
+
 					</decorator-section>
 				</decorator-screen>
 
@@ -120,6 +116,10 @@
 							<widgets>
 								<decorator-screen name="FindScreenDecorator"
 									location="component://common/widget/CommonScreens.xml">
+									<decorator-section name="menu-bar">
+										<include-menu name="ProductSubTabBar"
+											location="component://vfproduct/widget/VfproductMenus.xml" />
+									</decorator-section>
 									<decorator-section name="search-options">
 										<include-form name="FindProduct"
 											location="component://product/widget/catalog/ProductForms.xml" />
@@ -338,6 +338,68 @@
 						</screenlet>
 					</decorator-section>
 				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<screen name="FindProduction">
+		<section>
+			<actions>
+				<set field="headerItem" value="production" />
+				<set field="titleProperty" value="Production" />
+
+			</actions>
+			<widgets>
+				<decorator-screen name="VfproductCommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="VFPRODUCT"
+									action="_VIEW" />
+							</condition>
+							<widgets>
+								<decorator-screen name="FindScreenDecorator"
+									location="component://common/widget/CommonScreens.xml">
+									<decorator-section name="menu-bar">
+										<container style="button-bar">
+											<link target="EditProductionLayer" link-type="layered-modal"
+												text="${uiLabelMap.ProductNewProduction}" style="buttontext create" />
+										</container>
+									</decorator-section>
+									<decorator-section name="search-options">
+										<include-form name="FindProduction"
+											location="component://vfproduct/widget/VfproductForms.xml" />
+									</decorator-section>
+									<decorator-section name="search-results">
+										<include-form name="ListProduction"
+											location="component://vfproduct/widget/VfproductForms.xml" />
+									</decorator-section>
+								</decorator-screen>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.ProductViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<screen name="EditProductionLayer">
+		<section>
+			<actions>
+				<property-map resource="VfProductUiLabels" map-name="uiLabelMap"
+					global="true" />
+				<property-map resource="CommonUiLabels" map-name="uiLabelMap"
+					global="true" />
+				<set field="titleProperty" value="PageTitleEditExample" />
+				<set field="tabButtonItem" value="EditProduction" />
+			</actions>
+			<widgets>
+				<include-form name="EditProduction"
+					location="component://vfproduct/widget/VfproductForms.xml" />
 			</widgets>
 		</section>
 	</screen>
