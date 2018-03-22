@@ -782,7 +782,7 @@
 		override-list-size="true">
 		<actions>
 			<set field="requestParameters.noConditionFind" value="Y" />
-			<set field="entityName" value="WorkEffortAndInventoryAssign" />
+			<set field="entityName" value="VfWorkEffortAndInventoryAssign" />
 			<service service-name="performFindList" result-map="result"
 				result-map-list="list">
 				<field-map field-name="inputFields" from-field="requestParameters" />
@@ -795,10 +795,16 @@
 		<field name="productId" sort-field="true">
 			<display />
 		</field>
+		<field name="internalName" sort-field="true">
+			<display />
+		</field>
 		<field name="workEffortId" sort-field="true">
 			<display />
 		</field>
 		<field name="inventoryItemId" sort-field="true">
+			<display />
+		</field>
+		<field name="lastUpdatedStamp" sort-field="true">
 			<display />
 		</field>
 		<field name="deleteLink" title=" " widget-style="buttontext">
