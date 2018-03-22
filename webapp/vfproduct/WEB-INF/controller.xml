@@ -179,6 +179,13 @@
 		<response name="success" type="view" value="FindProduction" />
 		<response name="error" type="view" value="FindProduction" />
 	</request-map>
+	<request-map uri="deleteProduction">
+		<security https="true" auth="true" />
+		<event type="java" path="org.apache.ofbiz.vffacility.VffacilityEvents"
+			invoke="deleteProductionInventory" />
+		<response name="success" type="view" value="FindProduction" />
+		<response name="error" type="view" value="FindProduction" />
+	</request-map>
 
 
 

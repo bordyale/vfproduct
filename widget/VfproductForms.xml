@@ -751,6 +751,9 @@
 		<field name="quantity" title="${uiLabelMap.ManufactoringQuantity}">
 			<text default-value="0" size="5" />
 		</field>
+		<field name="facilityId">
+			<hidden value="10000" />
+		</field>
 
 		<field name="submitButton" title="${uiLabelMap.CommonCreate}">
 			<submit button-type="button" />
@@ -767,13 +770,12 @@
 		<field name="productId" title="${uiLabelMap.ProductProductId}">
 			<lookup target-form-name="LookupProduct" />
 		</field>
-
 		<field name="searchButton">
 			<submit />
 		</field>
 
 	</form>
-	
+
 	<form name="ListProduction" list-name="list" target="" title=""
 		type="list" paginate-target="FindProduction" odd-row-style="alternate-row"
 		default-table-style="basic-table hover-bar" header-row-style="header-row-2"
@@ -798,6 +800,13 @@
 		</field>
 		<field name="inventoryItemId" sort-field="true">
 			<display />
+		</field>
+		<field name="deleteLink" title=" " widget-style="buttontext">
+			<hyperlink description="${uiLabelMap.CommonDelete}" target="deleteProduction"
+				also-hidden="false" confirmation-message="${uiLabelMap.CommonConfirmDelete}"
+				image-location="${iconsLocation}/delete.png">
+				<parameter param-name="workEffortId" />
+			</hyperlink>
 		</field>
 		<!-- <field name="brandName" sort-field="true"><display/></field> <field 
 			name="productName" sort-field="true"><display/></field> <field name="description" 
