@@ -6,6 +6,6 @@
     <SecurityPermission description="Delete operations in the Vfproduct Component." permissionId="VFPRODUCT_DELETE"/>
     <SecurityPermission description="ALL operations in the Vfproduct Component." permissionId="VFPRODUCT_ADMIN"/>
 
-    <SecurityGroupPermission groupId="SUPER" permissionId="VFPRODUCT_ADMIN"/>
+    <SecurityGroupPermission fromDate="2001-05-13 12:00:00.0" groupId="SUPER" permissionId="VFPRODUCT_ADMIN"/>
 
 </entity-engine-xml>
