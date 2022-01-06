@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://ofbiz.apache.org/Site-Conf"
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ofbiz.apache.org/Site-Conf"
 	xsi:schemaLocation="http://ofbiz.apache.org/Site-Conf http://ofbiz.apache.org/dtds/site-conf.xsd">
-	<!-- The controller elements that are common to all OFBiz components can 
-		be found in the following xml file. A component can override the elements 
-		found in the common-controller.xml file. -->
+	<!-- The controller elements that are common to all OFBiz components can be found in the following xml file. A component can override 
+		the elements found in the common-controller.xml file. -->
 	<include location="component://common/webcommon/WEB-INF/common-controller.xml" />
 
 	<description>Vfproduct Component Site Configuration File</description>
@@ -12,8 +10,7 @@
 	<!-- Events to run on every request before security (chains exempt) -->
 	<!-- <preprocessor> </preprocessor> -->
 	<!-- Events to run on every request after all other processing (chains exempt) -->
-	<!-- <postprocessor> <event name="test" type="java" path="org.apache.ofbiz.webapp.event.TestEvent" 
-		invoke="test"/> </postprocessor> -->
+	<!-- <postprocessor> <event name="test" type="java" path="org.apache.ofbiz.webapp.event.TestEvent" invoke="test"/> </postprocessor> -->
 
 	<!-- Request Mappings -->
 	<request-map uri="main">
@@ -30,13 +27,13 @@
 	</request-map>
 	<request-map uri="createProduct">
 		<security https="true" auth="true" />
-		<event type="service" path="" invoke="createProduct" />
+		<event type="service" path="" invoke="createVfProduct" />
 		<response name="success" type="view" value="EditProduct" />
 		<response name="error" type="view" value="EditProduct" />
 	</request-map>
 	<request-map uri="updateProduct">
 		<security https="true" auth="true" />
-		<event type="service" path="" invoke="updateProduct" />
+		<event type="service" path="" invoke="updateVfProduct" />
 		<response name="success" type="view" value="EditProduct" />
 		<response name="error" type="view" value="EditProduct" />
 	</request-map>
@@ -157,9 +154,7 @@
 	</request-map>
 	<request-map uri="UpdateProductBom">
 		<security https="true" auth="true" />
-		<event type="simple"
-			path="component://manufacturing/minilang/bom/BomSimpleMethods.xml"
-			invoke="eventEditBOM" />
+		<event type="simple" path="component://manufacturing/minilang/bom/BomSimpleMethods.xml" invoke="eventEditBOM" />
 		<response name="success" type="view" value="EditProductBom" />
 		<response name="error" type="view" value="EditProductBom" />
 	</request-map>
@@ -174,15 +169,13 @@
 	</request-map>
 	<request-map uri="createProduction">
 		<security https="true" auth="true" />
-		<event type="java" path="org.apache.ofbiz.vffacility.VffacilityEvents"
-			invoke="updateProductionInventory" />
+		<event type="java" path="org.apache.ofbiz.vffacility.VffacilityEvents" invoke="updateProductionInventory" />
 		<response name="success" type="view" value="FindProduction" />
 		<response name="error" type="view" value="FindProduction" />
 	</request-map>
 	<request-map uri="deleteProduction">
 		<security https="true" auth="true" />
-		<event type="java" path="org.apache.ofbiz.vffacility.VffacilityEvents"
-			invoke="deleteProductionInventory" />
+		<event type="java" path="org.apache.ofbiz.vffacility.VffacilityEvents" invoke="deleteProductionInventory" />
 		<response name="success" type="view" value="FindProduction" />
 		<response name="error" type="view" value="FindProduction" />
 	</request-map>
@@ -190,33 +183,20 @@
 
 
 	<!-- View Mappings -->
-	<view-map name="main" type="screen"
-		page="component://vfproduct/widget/VfproductScreens.xml#main" />
-	<view-map name="FindProduct" type="screen"
-		page="component://vfproduct/widget/VfproductScreens.xml#FindProduct" />
-	<view-map name="EditProduct" type="screen"
-		page="component://vfproduct/widget/VfproductScreens.xml#EditProduct" />
-	<view-map name="EditProductPrices" type="screen"
-		page="component://vfproduct/widget/VfproductScreens.xml#EditProductPrices" />
-	<view-map name="EditSupplierProduct" type="screen"
-		page="component://vfproduct/widget/VfproductScreens.xml#EditSupplierProduct" />
+	<view-map name="main" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#main" />
+	<view-map name="FindProduct" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#FindProduct" />
+	<view-map name="EditProduct" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#EditProduct" />
+	<view-map name="EditProductPrices" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#EditProductPrices" />
+	<view-map name="EditSupplierProduct" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#EditSupplierProduct" />
 	<view-map name="EditProductInventoryItems" type="screen"
 		page="component://vfproduct/widget/VfproductScreens.xml#EditProductInventoryItems" />
-	<view-map name="EditProductFacilities" type="screen"
-		page="component://vfproduct/widget/VfproductScreens.xml#EditProductFacilities" />
+	<view-map name="EditProductFacilities" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#EditProductFacilities" />
 	<!-- BOM view mappings -->
-	<view-map name="EditProductBom"
-		page="component://vfproduct/widget/VfBomScreens.xml#EditProductBom"
-		type="screen" />
-	<view-map name="FindBom"
-		page="component://vfproduct/widget/VfBomScreens.xml#FindBom" type="screen" />
+	<view-map name="EditProductBom" page="component://vfproduct/widget/VfBomScreens.xml#EditProductBom" type="screen" />
+	<view-map name="FindBom" page="component://vfproduct/widget/VfBomScreens.xml#FindBom" type="screen" />
 	<!-- Lookup view mappings -->
 
-	<view-map name="LookupProduct"
-		page="component://vforder/widget/LookupScreens.xml#LookupProduct"
-		type="screen" />
-	<view-map name="FindProduction" type="screen"
-		page="component://vfproduct/widget/VfproductScreens.xml#FindProduction" />
-	<view-map name="EditProductionLayer" type="screen"
-		page="component://vfproduct/widget/VfproductScreens.xml#EditProductionLayer" />
+	<view-map name="LookupProduct" page="component://vforder/widget/LookupScreens.xml#LookupProduct" type="screen" />
+	<view-map name="FindProduction" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#FindProduction" />
+	<view-map name="EditProductionLayer" type="screen" page="component://vfproduct/widget/VfproductScreens.xml#EditProductionLayer" />
 </site-conf>

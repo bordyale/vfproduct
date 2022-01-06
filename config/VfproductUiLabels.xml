@@ -164,4 +164,8 @@
         <value xml:lang="en">Manifacturing</value>
         <value xml:lang="hu">Termelés</value>
     </property>
+    <property key="ProdGroup">
+        <value xml:lang="en">Product Group</value>
+        <value xml:lang="hu">Termék Csoport</value>
+    </property>
 </resource>

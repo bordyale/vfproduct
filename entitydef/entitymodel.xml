@@ -42,5 +42,13 @@
         <key-map field-name="productId"></key-map>
       </view-link>
     </view-entity>
+    
+    
+    <entity entity-name="VfProductGroup" package-name="org.apache.ofbiz.order.shipping" never-cache="true" title="Product Group">
+		<field name="prodGroupId" type="id"></field>
+		<field name="productId" type="id"></field>
+		<field name="groupId" type="id"></field>
+		<prim-key field="prodGroupId" />		
+	</entity>
 
 </entitymodel>
