@@ -27,13 +27,13 @@
 	</request-map>
 	<request-map uri="createProduct">
 		<security https="true" auth="true" />
-		<event type="service" path="" invoke="createVfProduct" />
+		<event type="service" path="" invoke="createVfProductJava" />
 		<response name="success" type="view" value="EditProduct" />
 		<response name="error" type="view" value="EditProduct" />
 	</request-map>
 	<request-map uri="updateProduct">
 		<security https="true" auth="true" />
-		<event type="service" path="" invoke="updateVfProduct" />
+		<event type="service" path="" invoke="updateVfProductJava" />
 		<response name="success" type="view" value="EditProduct" />
 		<response name="error" type="view" value="EditProduct" />
 	</request-map>

@@ -25,7 +25,7 @@ if (parameters.productId){
 
 	prodGroup = from("VfProductGroup").where("productId", parameters.productId).queryOne()
 	if (prodGroup){
-		context.prodGroupId = prodGroup.groupId
+		context.groupId = prodGroup.groupId
 	}
 }
 

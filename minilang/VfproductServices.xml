@@ -55,13 +55,13 @@
 		<create-value value-field="newEntity" />
 		
 		<!-- Product Group -->
-		<make-value entity-name="VfProductGroup" value-field="newEntity2" />
+		<!-- <make-value entity-name="VfProductGroup" value-field="newEntity2" />
 		<set from-field="nowTimestamp" field="newEntity2.createdDate" />
 		<set from-field="nowTimestamp" field="newEntity2.lastModifiedDate" />
 		<set from-field="userLogin.userLoginId" field="newEntity2.lastModifiedByUserLogin" />
 		<set from-field="userLogin.userLoginId" field="newEntity2.createdByUserLogin" />
 		<set from-field="newEntity.productId" field="newEntity2.productId" />
-		<create-value value-field="newEntity2" />
+		<create-value value-field="newEntity2" /> -->
 		
 
 		<!-- if setting the primaryProductCategoryId create a member entity too -->
@@ -90,7 +90,6 @@
 	<simple-method method-name="updateProduct" short-description="Update a Product">
 		<set value="updateProduct" field="callingMethodName" />
 		<set value="UPDATE" field="checkAction" />
-		<call-simple-method method-name="checkProductRelatedPermission" />
 		<check-errors />
 
 		<entity-one entity-name="Product" value-field="lookedUpValue" />
@@ -103,9 +102,9 @@
 
 		<store-value value-field="lookedUpValue" />
 		
-		<!-- Product Group -->
-		<entity-one entity-name="VfProductGroup" value-field="lookedUpValue2" />
-		<store-value value-field="lookedUpValue2" />
+		 <!-- Product Group -->
+		<!--<entity-one entity-name="VfProductGroup" value-field="lookedUpValue2" />
+		<store-value value-field="lookedUpValue2" /> -->
 
 		<!-- if setting the primaryParentCategoryId, create a rollup entity too -->
 		<!-- THIS IS REMOVED BECAUSE IT CAUSES PROBLEMS FOR WORKING ON PRODUCTION SITES <if-not-empty field="lookedUpValue.primaryProductCategoryId"> 

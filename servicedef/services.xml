@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
 	<description>Vfproduct Services</description>
 	<vendor></vendor>
 	<version>1.0</version>
@@ -11,9 +10,8 @@
         </description>
 	</service>
 
-	<service name="vfCreateProductPrice" default-entity-name="ProductPrice"
-		engine="simple" location="component://vfproduct/minilang/VfproductServices.xml"
-		invoke="createProductPrice" auth="true">
+	<service name="vfCreateProductPrice" default-entity-name="ProductPrice" engine="simple"
+		location="component://vfproduct/minilang/VfproductServices.xml" invoke="createProductPrice" auth="true">
 		<description>
             Create a Product Price. 
             
@@ -41,27 +39,60 @@
 	<service name="createVfProductGroup" default-entity-name="VfProductGroup" engine="entity-auto" invoke="create" auth="true">
 		<description>Create Work Papers entry</description>
 		<permission-service service-name="vfproductGenericPermission" main-action="CREATE" />
-		<auto-attributes include="nonpk" mode="IN" optional="true"/>
-        <auto-attributes include="pk" mode="INOUT" optional="true"/>
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
+		<auto-attributes include="pk" mode="INOUT" optional="true" />
+	</service>
+	<service name="updateVfProductGroup" default-entity-name="VfProductGroup" engine="entity-auto" invoke="update" auth="true">
+		<description>Create Work Papers entry</description>
+		<permission-service service-name="vfproductGenericPermission" main-action="UPDATE" />
+		<auto-attributes include="pk" mode="IN" optional="false" />
+		<auto-attributes include="nonpk" mode="IN" optional="true" />
 	</service>
 	
-	<service name="createVfProduct" default-entity-name="Product" engine="simple"
-                location="component://vfproduct/minilang/VfproductServices.xml" invoke="createProduct" auth="true">
-        <description>Create a Product</description>
-        <implements service="interfaceProduct"/>
-        <auto-attributes include="pk" mode="INOUT" optional="true"/>
-        <override name="productTypeId" optional="false"/>
-        <override name="internalName" optional="false"/>
-    </service>
-    <service name="updateVfProduct" default-entity-name="Product" engine="simple"
-                location="component://vfproduct/minilang/VfproductServices.xml" invoke="updateProduct" auth="true">
-        <description>Update a Product</description>
-        <implements service="interfaceProduct"/>
-        <auto-attributes include="pk" mode="IN" optional="false"/>
-    </service>
+	<service name="createVfProductJava" engine="java"
+		location="org.apache.ofbiz.boragency.VfProductServices" invoke="createVfProductJava" auth="true">
+		<description>Create Work Papers entry</description>
+		<attribute mode="IN" name="productId" optional="true" type="String"/>
+		<attribute mode="IN" name="productTypeId" optional="true" type="String"/>
+		<attribute mode="IN" name="internalName" optional="true" type="String"/>
+		<attribute mode="IN" name="productName" optional="true" type="String"/>
+		<attribute mode="IN" name="weightUomId" optional="true" type="String"/>
+		<attribute mode="IN" name="productWeight" optional="true" type="String"/>
+		<attribute mode="IN" name="groupId" optional="true" type="String"/>
+		<attribute mode="OUT" name="productId" optional="false" type="String"/>
+	</service>
+	
+	<service name="updateVfProductJava" engine="java"
+		location="org.apache.ofbiz.boragency.VfProductServices" invoke="updateVfProductJava" auth="true">
+		<description>Create Work Papers entry</description>
+		<attribute mode="IN" name="productId" optional="false" type="String"/>
+		<attribute mode="IN" name="productTypeId" optional="true" type="String"/>
+		<attribute mode="IN" name="internalName" optional="true" type="String"/>
+		<attribute mode="IN" name="productName" optional="true" type="String"/>
+		<attribute mode="IN" name="weightUomId" optional="true" type="String"/>
+		<attribute mode="IN" name="productWeight" optional="true" type="String"/>
+		<attribute mode="IN" name="groupId" optional="true" type="String"/>
+	</service>
+	
+	
+	
 
-	<service name="vfproductGenericPermission" engine="simple"
-		location="component://vfproduct/minilang/VfproductPermissionServices.xml"
+	<service name="createVfProduct" default-entity-name="Product" engine="simple"
+		location="component://vfproduct/minilang/VfproductServices.xml" invoke="createProduct" auth="true">
+		<description>Create a Product</description>
+		<implements service="interfaceProduct" />
+		<auto-attributes include="pk" mode="INOUT" optional="true" />
+		<override name="productTypeId" optional="false" />
+		<override name="internalName" optional="false" />
+	</service>
+	<service name="updateVfProduct" default-entity-name="Product" engine="simple"
+		location="component://vfproduct/minilang/VfproductServices.xml" invoke="updateProduct" auth="true">
+		<description>Update a Product</description>
+		<implements service="interfaceProduct" />
+		<auto-attributes include="pk" mode="IN" optional="false" />
+	</service>
+
+	<service name="vfproductGenericPermission" engine="simple" location="component://vfproduct/minilang/VfproductPermissionServices.xml"
 		invoke="vfproductGenericPermission">
 		<implements service="permissionInterface" />
 	</service>

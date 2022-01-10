@@ -198,8 +198,8 @@
 				</entity-options>
 			</drop-down>
 		</field>
-		<field position="3" name="groupId" title="${uiLabelMap.ProdGroup}">
-			<text size="10" maxlength="20" />
+		<field position="3"  name="groupId" title="${uiLabelMap.ProdGroup}">
+			<text size="10" maxlength="20" default-value="${groupId}"/>
 		</field>
 		<field name="submitButton" title="${uiLabelMap.ProductUpdateProduct}" use-when="product!=null" widget-style="smallSubmit">
 			<submit button-type="button" />
