@@ -110,7 +110,7 @@
 										<include-menu name="ProductSubTabBar" location="component://vfproduct/widget/VfproductMenus.xml" />
 									</decorator-section>
 									<decorator-section name="search-options">
-										<include-form name="FindProduct" location="component://product/widget/catalog/ProductForms.xml" />
+										<include-form name="FindProduct" location="component://vfproduct/widget/VfproductForms.xml" />
 									</decorator-section>
 									<decorator-section name="search-results">
 										<include-form name="ListProducts" location="component://vfproduct/widget/VfproductForms.xml" />

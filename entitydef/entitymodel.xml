@@ -50,5 +50,15 @@
 		<field name="groupId" type="id"></field>
 		<prim-key field="prodGroupId" />		
 	</entity>
+	
+	<view-entity entity-name="VfProdructGroupView" package-name="org.apache.ofbiz.borAgency">
+		<member-entity entity-alias="PROD" entity-name="Product" />
+		<member-entity entity-alias="PRODG" entity-name="VfProductGroup" />
+		<alias-all entity-alias="PROD" />
+		<alias-all entity-alias="PRODG" />
+		<view-link entity-alias="PROD"  rel-entity-alias="PRODG">
+			<key-map field-name="productId" />
+		</view-link>
+	</view-entity>
 
 </entitymodel>

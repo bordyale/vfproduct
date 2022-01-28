@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ofbiz.apache.org/Widget-Form"
 	xsi:schemaLocation="http://ofbiz.apache.org/Widget-Form http://ofbiz.apache.org/dtds/widget-form.xsd">
-
+	<form name="FindProduct" type="single" target="FindProduct" title="" default-map-name="product" header-row-style="header-row"
+		default-table-style="basic-table">
+		<field name="noConditionFind">
+			<hidden value="Y" /><!-- if this isn't there then with all fields empty no query will be done -->
+		</field>
+		<field name="productId" title="${uiLabelMap.ProductProductId}">
+			<text-find />
+		</field>
+		<field name="internalName" title="${uiLabelMap.ProductInternalName}">
+			<text-find />
+		</field>
+		<field name="groupId" title="${uiLabelMap.ProdGroup}">
+			<text size="10" maxlength="20" default-value="${groupId}" />
+		</field>
+		<field name="submitButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+			<submit button-type="button" />
+		</field>
+	</form>
 
 	<form name="ListProducts" list-name="list" target="" title="" type="list" paginate-target="FindProduct" odd-row-style="alternate-row"
 		default-table-style="basic-table hover-bar" header-row-style="header-row-2" override-list-size="true">
 		<actions>
 			<set field="requestParameters.noConditionFind" value="Y" />
-			<set field="entityName" value="Product" />
+			<set field="entityName" value="VfProdructGroupView" />
 			<service service-name="performFindList" result-map="result" result-map-list="list">
 				<field-map field-name="inputFields" from-field="requestParameters" />
 				<field-map field-name="entityName" from-field="entityName" />
@@ -20,6 +37,9 @@
 			<hyperlink description="${productId}" target="EditProduct" also-hidden="false">
 				<parameter param-name="productId" />
 			</hyperlink>
+		</field>
+		<field name="groupId" title="${uiLabelMap.ProdGroup}">
+			<display />
 		</field>
 		<field name="productTypeId" sort-field="true">
 			<display-entity entity-name="ProductType" />
@@ -198,8 +218,8 @@
 				</entity-options>
 			</drop-down>
 		</field>
-		<field position="3"  name="groupId" title="${uiLabelMap.ProdGroup}">
-			<text size="10" maxlength="20" default-value="${groupId}"/>
+		<field position="3" name="groupId" title="${uiLabelMap.ProdGroup}">
+			<text size="10" maxlength="20" default-value="${groupId}" />
 		</field>
 		<field name="submitButton" title="${uiLabelMap.ProductUpdateProduct}" use-when="product!=null" widget-style="smallSubmit">
 			<submit button-type="button" />
